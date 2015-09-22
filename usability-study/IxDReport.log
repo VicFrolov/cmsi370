@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  21 SEP 2015 21:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  21 SEP 2015 22:20
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -482,7 +482,7 @@ File: images/task1average.png Graphic file (type png)
 
 <use images/task1average.png>
 Package pdftex.def Info: images/task1average.png used on input line 93.
-(pdftex.def)             Requested size: 354.92647pt x 247.32433pt.
+(pdftex.def)             Requested size: 266.19655pt x 185.49442pt.
  [2 <./images/charttask1.png> <./images/task1average.png>] <images/task1satisfa
 ction.png, id=21, 482.80376pt x 372.39125pt>
 File: images/task1satisfaction.png Graphic file (type png)
@@ -510,14 +510,13 @@ Underfull \hbox (badness 10000) in paragraph at lines 117--118
 
  []
 
-[3 <./images/task1satisfaction.png>]
-<images/task1satav.png, id=27, 203.76125pt x 353.32pt>
+<images/task1satav.png, id=22, 203.76125pt x 353.32pt>
 File: images/task1satav.png Graphic file (type png)
 
 <use images/task1satav.png>
 Package pdftex.def Info: images/task1satav.png used on input line 119.
 (pdftex.def)             Requested size: 163.0092pt x 282.65639pt.
-
+ [3 <./images/task1satisfaction.png>]
 <images/task2learnability.png, id=28, 524.96124pt x 376.40625pt>
 File: images/task2learnability.png Graphic file (type png)
 
@@ -535,18 +534,14 @@ File: images/task2learnav.png Graphic file (type png)
 
 <use images/task2learnav.png>
 Package pdftex.def Info: images/task2learnav.png used on input line 138.
-(pdftex.def)             Requested size: 433.62057pt x 313.17041pt.
+(pdftex.def)             Requested size: 325.2175pt x 234.8793pt.
 
-Overfull \hbox (26.31505pt too wide) in paragraph at lines 138--139
-[][] 
- []
-
-[5 <./images/task2learnability.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 144--145
 
  []
 
-<images/task2sat.png, id=38, 471.7625pt x 368.37625pt>
+[5 <./images/task2learnability.png> <./images/task2learnav.png>]
+<images/task2sat.png, id=39, 471.7625pt x 368.37625pt>
 File: images/task2sat.png Graphic file (type png)
 
 <use images/task2sat.png>
@@ -562,48 +557,104 @@ Underfull \hbox (badness 10000) in paragraph at lines 156--157
 
  []
 
-[6 <./images/task2learnav.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 158--159
-
- []
-
 
 Underfull \hbox (badness 10000) in paragraph at lines 158--159
 
  []
 
-<images/task2satav.png, id=43, 210.7875pt x 350.30875pt>
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
+
+ []
+
+<images/task2satav.png, id=40, 210.7875pt x 350.30875pt>
 File: images/task2satav.png Graphic file (type png)
 
 <use images/task2satav.png>
 Package pdftex.def Info: images/task2satav.png used on input line 160.
 (pdftex.def)             Requested size: 168.63022pt x 280.24738pt.
- [7 <./images/task2sat.png>] [8 <./images/task2satav.png>] [9] (./IxDReport.aux
-) ) 
+ [6 <./images/task2sat.png>]
+<images/task3learnability.png, id=45, 521.95pt x 387.4475pt>
+File: images/task3learnability.png Graphic file (type png)
+
+<use images/task3learnability.png>
+Package pdftex.def Info: images/task3learnability.png used on input line 172.
+(pdftex.def)             Requested size: 417.56056pt x 309.95842pt.
+
+Overfull \hbox (10.25504pt too wide) in paragraph at lines 172--173
+[][] 
+ []
+
+[7 <./images/task2satav.png>]
+<images/task3learnav.png, id=51, 559.08875pt x 394.47375pt>
+File: images/task3learnav.png Graphic file (type png)
+
+<use images/task3learnav.png>
+Package pdftex.def Info: images/task3learnav.png used on input line 177.
+(pdftex.def)             Requested size: 335.45583pt x 236.68607pt.
+ [8 <./images/task3learnability.png> <./images/task3learnav.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 183--184
+
+ []
+
+<images/task3sat.png, id=57, 471.7625pt x 377.41pt>
+File: images/task3sat.png Graphic file (type png)
+ <use images/task3sat.png>
+Package pdftex.def Info: images/task3sat.png used on input line 194.
+(pdftex.def)             Requested size: 377.4105pt x 301.9284pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 194--195
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--197
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 196--197
+
+ []
+
+[9 <./images/task3sat.png>]
+<images/task3satav.png, id=62, 217.81375pt x 356.33125pt>
+File: images/task3satav.png Graphic file (type png)
+
+<use images/task3satav.png>
+Package pdftex.def Info: images/task3satav.png used on input line 198.
+(pdftex.def)             Requested size: 174.25122pt x 285.06537pt.
+ [10 <./images/task3satav.png>] [11]
+(./IxDReport.aux) ) 
 Here is how much of TeX's memory you used:
- 7775 strings out of 493089
- 125164 string characters out of 6134842
- 288234 words of memory out of 5000000
- 11068 multiletter control sequences out of 15000+600000
- 25161 words of font info for 91 fonts, out of 8000000 for 9000
+ 7803 strings out of 493089
+ 125725 string characters out of 6134842
+ 290234 words of memory out of 5000000
+ 11084 multiletter control sequences out of 15000+600000
+ 25365 words of font info for 95 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 54i,14n,47p,374b,327s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/
-texlive/2015/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb></usr/local/tex
-live/2015/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></usr/local/texliv
-e/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive
-/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/
-2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2
-015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/201
-5/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2015/texmf
--dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on IxDReport.pdf (9 pages, 599461 bytes).
+ 54i,14n,47p,548b,327s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/base/8r.
+enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/bitstrea/charter/bchb8a.pfb
+></usr/local/texlive/2015/texmf-dist/fonts/type1/bitstrea/charter/bchr8a.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></u
+sr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr
+/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loc
+al/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/
+texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
+exlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on IxDReport.pdf (11 pages, 876016 bytes).
 PDF statistics:
- 96 PDF objects out of 1000 (max. 8388607)
- 57 compressed objects within 1 object stream
+ 110 PDF objects out of 1000 (max. 8388607)
+ 61 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 20521 words of extra memory for PDF output out of 20736 (max. 10000000)
+ 20541 words of extra memory for PDF output out of 20736 (max. 10000000)
 
