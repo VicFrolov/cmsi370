@@ -1,0 +1,27 @@
+/*.navbar-inverse {
+	background-image: linear-gradient(to bottom,#FF7900 0,#FF7900 100%);
+	border-color: #E83B0C;
+}*/
+
+
+/*next two are for navbar links + hover*/
+.navbar-inverse .navbar-nav>li>a {
+	color:#FFFFFF;
+}
+
+.navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
+    color: #FF7900;
+    background-color:#000000;
+}
+
+
+/*Next two are for navbar + navbar hover*/
+.navbar-inverse .navbar-brand {
+	color:#FF7900;
+}
+
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+    color: #FF7900;
+    background-color: #000000;
+
+
