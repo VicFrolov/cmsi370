@@ -1,28 +1,28 @@
 .navbar-inverse {
 	opacity: 80%;
-	/*background-image: linear-gradient(to bottom,#FF7900 0,#FF7900 100%);
-	border-color: #E83B0C;*/
+	background-image: linear-gradient(to bottom,#9CD3E0 0,#9CD3E0 100%);
+	border-color: #000000;
 }
 
 /*next two are for navbar links + hover*/
 .navbar-inverse .navbar-nav>li>a {
-	color:#FFFFFF;
+	color:#ffffff;
 }
 
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
-    color: #ffffff;
-    background-color:#000000;
+    color: #000000;
+    background-color:#FFFF7E;
 }
 
 
 /*Next two are for navbarbrand + navbarbrand hover*/
 .navbar-inverse .navbar-brand {
-	color:#FF7900;
+	color:#ffffff;
 }
 
 .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
-    color: #FF7900;
-    background-color: #000000;
+    color: #000000;
+    background-color: #FFFF7E;
 
 }
 
@@ -42,7 +42,7 @@
 
 	text-align:left;
 	padding-top:350px;
-    color: #FF7900;
+    color: #ffffff;
     letter-spacing: 1px;	
 }
 
@@ -57,9 +57,9 @@
 	padding-left: 1%;
 }
 .jumbotron h5 {
-	margin-top:40px;
+	margin-top:80px;
 	margin-right:50px;
-    color: #FFFFFF;
+    color: #ffffff;
     text-align:right;
     letter-spacing:0px;
 	line-height: 20px;
@@ -68,10 +68,11 @@
 
 .jumbotron-overlay {
     background-color: rgba(44, 62, 80, 0.3);
-    background-image: url("images/overlay.jpg");
+    background-image: url("../images/pattern.png");
     background-repeat: repeat;
-    height: 110%;
+    height: 100%;
     left: 0;
+    position: absolute;
     top: 0;
     width: 100%;
     z-index: 0;
