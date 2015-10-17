@@ -14,6 +14,26 @@
 	<link rel="stylesheet" type="text/css" href="css/custom.css">
 
 
+   <style>
+      #map {
+        width: 500px;
+        height: 400px;
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js"></script>
+    <script>
+      function initialize() {
+        var mapCanvas = document.getElementById('map');
+        var mapOptions = {
+          center: new google.maps.LatLng(44.5403, -78.5463),
+          zoom: 8,
+          mapTypeId: google.maps.MapTypeId.ROADMAP
+        }
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
+
 </head>
 
 
@@ -36,9 +56,9 @@
 				<a href="" class="btn btn-warning navbar-btn navbar-right"> holder </a>
 
 				<ul class="nav navbar-nav">
-					<li> <a href="#FAQ">FAQ</a>
-					<li> <a href="#FAQ">FAQ</a>
-					<li> <a href="#FAQ">FAQ</a>
+					<li> <a href="#tweetsAroundMe">Show tweets</a>
+					<li> <a href="#FAQ">About Us</a>
+					<li> <a href="#FAQ">Login</a>
 					<li> <a href="#FAQ">FAQ</a>
 				</ul>
 			</div>
@@ -49,38 +69,34 @@
 	<div class="jumbotron">
 		<div class="jumbotron-overlay">	
 			<div class="container text-center">
-
-	    				<p><h5>"Who says you gotta look up while you walk?" - That guy </h5> </p>
-				
+	    		<p><h5>"Who says you gotta look up while you walk?" - That guy </h5> </p>
 				<h1>Your neighborhood...</h1>
 				
 				<div class="row">
         			<div class="col-lg-8 col-md-10 col-xs-12">
-				
-
-						<p>
-							<h4>Stay in the loop and know <b>who's tweeting about what</b> just feet away from you. With Tweet District, you can instantly see tweets around you, or at any geographical location of your choosing! </h4>
-						</p>
+						<h4>Stay in the loop and know <b>who's tweeting about what</b> just feet away from you. With Tweet District, you can instantly see tweets around you, or at any geographical location of your choosing! </h4>
+						
 					</div>
 				</div>
 				<div class="btn-group text-center">
-					<a href="" class="btn btn-lg btn-info"> Show tweets around me! </a>
-					<a href="" class="btn btn-lg btn-warning"> Learn More </a>
+					<a href="#tweetsAroundMe" class="btn btn-lg btn-info"> Show tweets around me! </a>
+					<a href="#AboutUs" class="btn btn-lg btn-warning"> Learn More </a>
 				</div>
-
 			</div> <!-- end container -->
 		</div>
 	</div>
 	<!-- JUMBOtron -->
 
-	<div class="container height-full">
-		<section>
-		<div class="page-header" id="FAQ">
-			<h2> FAQ. </h2>h
-			<small> check out our FAQ </small>
-		</section>
+	<div class="container">
+		<div class="page-header" id="tweetsAroundMe">
+			<h2> Tweet District </h2>
+			<p> Below is a stream of all tweets from the location of your choosing </p>
+			<label for="location"> Tweets from: </label>
+			<input type="text" id="location" placeHolder="Location..." />
+			<input type="button" id="locationButton" value="Find Tweets!"/>
+		    <div id="map"></div>
 
-
+			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas, urna eu fringilla finibus, libero mauris cursus dui, quis sollicitudin arcu elit vel velit. Nunc a turpis libero. Vivamus at ante consequat, scelerisque metus nec, iaculis tellus. Nulla mollis sodales ex, id feugiat tortor aliquam id. Nullam venenatis, mauris non consequat interdum, lorem est accumsan ligula, et tempus tortor augue id enim. Vestibulum volutpat elementum nisl, nec mattis felis pretium nec. Curabitur ornare leo id odio interdum, at tempor orci porta. Cras lobortis lacus quam, sit amet dapibus quam dignissim quis. Proin justo dui, varius sed aliquet ut, mattis ac ex. Proin quis nisl vel nunc congue vestibulum sed rutrum urna. Suspendisse sed lobortis leo. Maecenas tincidunt elit eu neque eleifend, sed blandit dolor sagittis. Mauris porta auctor urna id vulputate.</p>
 
 	</div> <!-- End Container -->
 
