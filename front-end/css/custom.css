@@ -1,8 +1,8 @@
-/*.navbar-inverse {
-	background-image: linear-gradient(to bottom,#FF7900 0,#FF7900 100%);
-	border-color: #E83B0C;
-}*/
-
+.navbar-inverse {
+	opacity: 80%;
+	/*background-image: linear-gradient(to bottom,#FF7900 0,#FF7900 100%);
+	border-color: #E83B0C;*/
+}
 
 /*next two are for navbar links + hover*/
 .navbar-inverse .navbar-nav>li>a {
@@ -15,7 +15,7 @@
 }
 
 
-/*Next two are for navbar + navbar hover*/
+/*Next two are for navbarbrand + navbarbrand hover*/
 .navbar-inverse .navbar-brand {
 	color:#FF7900;
 }
@@ -26,19 +26,41 @@
 
 }
 
+/*jumbotron background and padding*/
 .jumbotron {
-position: relative;
-background: url("http://fooyoh.com/files/attach/images/3004/446/239/008/weneverlookup1.jpg") no-repeat center center;
-width:100%;
-height: 100%;
-background-size: 100% 100%;
+	height:100%;
+	color: #FFFFFF;
+    position: relative;
+    background: #000 url("http://fooyoh.com/files/attach/images/3004/446/239/008/weneverlookup1.jpg") center center;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: hidden;
+
 }
 
+.jumbotron .btn {
+	margin-top:80px;
+}
 
+.jumbotron h1 {
+	padding-top:340px;
+    color: #FF7900;
+}
+
+/*To allow the height to be full screen*/
 html,body {
-height:100%;
+	height:100%;
 }
 
-.jumbotron {
-height:100%;
+.jumbotron-overlay {
+    background-color: rgba(44, 62, 80, 0.3);
+    background-image: url("../images/pattern.png");
+    background-repeat: repeat;
+    height: 110%;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 0;
 }
+
