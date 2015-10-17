@@ -39,13 +39,25 @@
 
 }
 
-.jumbotron .btn {
-	margin-top:80px;
-}
 
 .jumbotron h1 {
-	padding-top:340px;
+	text-align:left;
+	padding-top:;
     color: #FF7900;
+}
+
+
+.jumbotron h4 {
+	text-align:left;
+	padding-bottom:50px;
+	font-weight:normal;
+	letter-spacing:1px;
+	line-height: 20px;
+}
+.jumbotron h5 {
+	padding-top:400px;
+    color: #FFFFFF;
+    text-align:center;
 }
 
 /*To allow the height to be full screen*/
