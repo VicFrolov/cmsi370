@@ -42,7 +42,7 @@
 
 .jumbotron h1 {
 	text-align:left;
-	padding-top:;
+	padding-top:300px;
     color: #FF7900;
     letter-spacing: 1px;
 }
@@ -54,13 +54,14 @@
 	font-weight:normal;
 	letter-spacing:1px;
 	line-height: 20px;
-	padding-right:43%;
+	margin-right:15%;
 	padding-left: 1%;
 }
 .jumbotron h5 {
-	padding-top:400px;
+	margin-top:100px;
+	margin-right:50px;
     color: #FFFFFF;
-    text-align:center;
+    text-align:right;
     letter-spacing:0px;
 	line-height: 20px;
 }
@@ -81,3 +82,7 @@ html,body {
     z-index: 0;
 }
 
+.height-full {
+  height: 100%;
+  min-height: 100%;
+}
