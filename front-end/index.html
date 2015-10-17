@@ -8,7 +8,7 @@
 	<meta name="description" content="Tweet District">
 
 
-
+	<link href="assets/css/font-awesome.min.css" rel="stylesheet" media="screen">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 	<link rel="stylesheet" type="text/css" href="css/custom.css">
@@ -67,7 +67,7 @@
 	<div class="jumbotron">
 		<div class="jumbotron-overlay"> </div>
 
-		<div class="container-fluid text-center">
+		<div class="container text-center">
 				<div class="row">
         			<div class="col-lg-8 col-md-10 col-xs-12">
 
@@ -99,6 +99,20 @@
 			<label for="location"> Tweets from: </label>
 			<input type="text" id="location" placeHolder="Location..." />
 			<input type="button" id="locationButton" value="Find Tweets!"/>
+
+
+
+			<script>
+			window.onload = function() {
+  var startPos;
+  var geoSuccess = function(position) {
+    startPos = position;
+    document.getElementById('startLat').innerHTML = startPos.coords.latitude;
+    document.getElementById('startLon').innerHTML = startPos.coords.longitude;
+  };
+  navigator.geolocation.getCurrentPosition(geoSuccess);
+};
+</script>
 		    <div id="map"></div>
 
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas, urna eu fringilla finibus, libero mauris cursus dui, quis sollicitudin arcu elit vel velit. Nunc a turpis libero. Vivamus at ante consequat, scelerisque metus nec, iaculis tellus. Nulla mollis sodales ex, id feugiat tortor aliquam id. Nullam venenatis, mauris non consequat interdum, lorem est accumsan ligula, et tempus tortor augue id enim. Vestibulum volutpat elementum nisl, nec mattis felis pretium nec. Curabitur ornare leo id odio interdum, at tempor orci porta. Cras lobortis lacus quam, sit amet dapibus quam dignissim quis. Proin justo dui, varius sed aliquet ut, mattis ac ex. Proin quis nisl vel nunc congue vestibulum sed rutrum urna. Suspendisse sed lobortis leo. Maecenas tincidunt elit eu neque eleifend, sed blandit dolor sagittis. Mauris porta auctor urna id vulputate.</p>

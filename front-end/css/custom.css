@@ -24,6 +24,11 @@
 
 }
 
+.navbar-inverse .navbar-brand {
+    font-weight: 700;
+    font-family: Lobster, cursive;
+}
+
 /*jumbotron background and padding*/
 .jumbotron {
     position: relative;
@@ -33,7 +38,6 @@
     background-size: cover;
     color: #FFFFFF;
     overflow: hidden;
-
 }
 
 .jumbotron-overlay {
@@ -70,10 +74,14 @@
 }
 
 .jumbotron h5 {
-	margin-top:80px;
-	margin-right:50px;
+	margin-top:40px;
+	margin-right:  0px;
     color: #ffffff;
-    text-align:right;
-    letter-spacing:0px;
+    text-align:left;
+    letter-spacing:-0.5px;
 	line-height: 20px;
+}
+
+.btn-group {
+    margin-bottom:50px;
 }
