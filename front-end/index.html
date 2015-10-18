@@ -35,6 +35,7 @@
     </script>
 
 
+<!-- Twitter script -->
         <script>
         window.twttr = (function(d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0],
@@ -118,15 +119,14 @@
 
         </div>
 			
-        <p> Below is a stream of all tweets from the location of your choosing. Please enter a location, 
-            and optional hashtag or search word
+        <p> Below is a stream of all tweets from the location of your choosing. Please enter a location, optional hashtag or search word, and a radius! 
         </p>
-
         <div class="row">
             <div class="col-lg-4 col-md-4 col-xs-9 col-sm-9">
-            <strong>Location </strong>
+
+            <label for="location" class="control-label"> Location </label>
                 <div class="input-group">
-                    <div class="input-group-btn">
+                    <div class="input-group-btn" id="location">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Where? <span class="caret"></span>
                         </button>
                         <ul class="dropdown-menu">
@@ -139,17 +139,16 @@
             </div>
             
             <div class="col-lg-4 col-md-4 col-xs-9 col-sm-9">
-                Search Word (Optional)
-                <input type="text" class="form-control" placeholder="Hashtag (optional)" aria-describedby="basic-addon1">
+            <label for="searchword" class="control-label"> Searchword (Optional) </label>
+                <input type="text" class="form-control" id="searchword" placeholder="Pick a word, any word" aria-describedby="basic-addon1">
             </div>
-            <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
-                <br>
+            <div class="col-lg-2 col-md-4 col-xs-12 col-sm-12">
                 <div class="btn-group">
-                    <button class="btn btn-default btn-md dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button class="btn btn-default btn-md dropdown-toggle" id="radius" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Radius <span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu">
-                        <li><a href="#">1 mile</a></li>
+                        <li><a href="#">1 miles</a></li>
                         <li><a href="#">5 miles</a></li>
                         <li><a href="#">10 miles</a></li>
                         <li><a href="#">25 miles</a></li>
@@ -157,25 +156,21 @@
                         <li><a href="#">100 miles</a></li>                                                
                     </ul>
                 </div>
-            </div>               
+            </div>      
         </div>
 
-        <div class="row">
+        <div class="row row-custom" >
             <div class="col-lg-2 col-md-3 col-xs-12 col-sm-12">
                 <br>
                 <button class="btn btn-info">Find Tweets!</button>
-            </div>  
+            </div> 
 
-        </div>  
+        </div>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-asdf
-asdf
-asdf
-asdf
-asdf
-asdf
 
+        <a class="twitter-timeline" height="500" href="https://twitter.com/search" data-widget-id="655557803466080256">
+            Tweets about 
+        </a> 
 
         
 	</div> <!-- End Container -->

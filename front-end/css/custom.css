@@ -82,3 +82,10 @@
 	line-height: 20px;
 }
 
+.row .btn-group {
+    margin-top: 24px;
+}
+
+.row-custom {
+    padding-bottom:10px;
+}
