@@ -34,6 +34,26 @@
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
 
+
+        <script>
+        window.twttr = (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+            t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "https://platform.twitter.com/widgets.js";
+                fjs.parentNode.insertBefore(js, fjs);
+                t._e = [];
+              t.ready = function(f) {
+                  t._e.push(f);
+              };
+            return t;
+        }
+        
+        (document, "script", "twitter-wjs"));
+    </script>
+
 </head>
 
 
@@ -94,29 +114,70 @@
 
 	<div class="container">
 		<div class="page-header" id="tweetsAroundMe">
-			<h2> Tweet District </h2>
-			<p> Below is a stream of all tweets from the location of your choosing </p>
-			<label for="location"> Tweets from: </label>
-			<input type="text" id="location" placeHolder="Location..." />
-			<input type="button" id="locationButton" value="Find Tweets!"/>
+			<h2> Tweet District <small> Go ahead, discover away </small> </h2>
+
+        </div>
+			
+        <p> Below is a stream of all tweets from the location of your choosing. Please enter a location, 
+            and optional hashtag or search word
+        </p>
+
+        <div class="row">
+            <div class="col-lg-4 col-md-4 col-xs-9 col-sm-9">
+            <strong>Location </strong>
+                <div class="input-group">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Where? <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Current Location</a></li>
+                            <li><a href="#">Somewhere Else</a></li>
+                        </ul>
+                    </div><!-- /btn-group -->
+                    <input type="text" class="form-control" placeholder="Anywhere in the world"aria-label="basic-addon1">
+                </div><!-- /input-group -->
+            </div>
+            
+            <div class="col-lg-4 col-md-4 col-xs-9 col-sm-9">
+                Search Word (Optional)
+                <input type="text" class="form-control" placeholder="Hashtag (optional)" aria-describedby="basic-addon1">
+            </div>
+            <div class="col-lg-4 col-md-4 col-xs-12 col-sm-12">
+                <br>
+                <div class="btn-group">
+                    <button class="btn btn-default btn-md dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Radius <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu">
+                        <li><a href="#">1 mile</a></li>
+                        <li><a href="#">5 miles</a></li>
+                        <li><a href="#">10 miles</a></li>
+                        <li><a href="#">25 miles</a></li>
+                        <li><a href="#">50 miles</a></li>    
+                        <li><a href="#">100 miles</a></li>                                                
+                    </ul>
+                </div>
+            </div>               
+        </div>
+
+        <div class="row">
+            <div class="col-lg-2 col-md-3 col-xs-12 col-sm-12">
+                <br>
+                <button class="btn btn-info">Find Tweets!</button>
+            </div>  
+
+        </div>  
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+asdf
+asdf
+asdf
+asdf
+asdf
+asdf
 
 
-
-			<script>
-			window.onload = function() {
-  var startPos;
-  var geoSuccess = function(position) {
-    startPos = position;
-    document.getElementById('startLat').innerHTML = startPos.coords.latitude;
-    document.getElementById('startLon').innerHTML = startPos.coords.longitude;
-  };
-  navigator.geolocation.getCurrentPosition(geoSuccess);
-};
-</script>
-		    <div id="map"></div>
-
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam egestas, urna eu fringilla finibus, libero mauris cursus dui, quis sollicitudin arcu elit vel velit. Nunc a turpis libero. Vivamus at ante consequat, scelerisque metus nec, iaculis tellus. Nulla mollis sodales ex, id feugiat tortor aliquam id. Nullam venenatis, mauris non consequat interdum, lorem est accumsan ligula, et tempus tortor augue id enim. Vestibulum volutpat elementum nisl, nec mattis felis pretium nec. Curabitur ornare leo id odio interdum, at tempor orci porta. Cras lobortis lacus quam, sit amet dapibus quam dignissim quis. Proin justo dui, varius sed aliquet ut, mattis ac ex. Proin quis nisl vel nunc congue vestibulum sed rutrum urna. Suspendisse sed lobortis leo. Maecenas tincidunt elit eu neque eleifend, sed blandit dolor sagittis. Mauris porta auctor urna id vulputate.</p>
-
+        
 	</div> <!-- End Container -->
 
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
