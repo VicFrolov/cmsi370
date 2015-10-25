@@ -1,25 +1,13 @@
 $(function () {
 
-	$("#search-button").click(function() {
-		$.getJSON(
-			//URL of web service
-			"http://api.giphy.com/v1/gifs/search",
+    $("#search-button").click(function() {
+        $.getJSON(
+            //URL of web service
+            "http://localhost/tw"
 
-			//paramters
-			{
-				q: $("#searchword").val(),  // query
-				api_key: "dc6zaTOxFJmzC"
-			}
-		).done(function (result) {
-			var img = $("<img/>").attr({
-				src: result.data[0].images.original.url,
-				alt: "search result"
-			});
+        ).done(function (result) {
+            console.log(result);
 
-			$("#tweetsAroundMe").append(img);
-
-		});
-	});
+        });
+    });
 });
-
-
