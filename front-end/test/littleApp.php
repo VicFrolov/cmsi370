@@ -12,6 +12,17 @@ $settings = array(
     'consumer_secret' => "nMuFLNd460HcJzM7xgolu3MldodNb9CmpxUr55N7ubBEAcCOQg"
 );
 
-$url = "https://api.twitter.com/1.1/search/tweets.json";
+$url = "https://api.twitter.com/1.1/statuses/user_timeline.json";
+$requestMethod = "GET";
+
+// ?username=iagdotme&count=20
+
+$getfield = '?screen_name=vicspiring&count=1';
+
+
+$twitter = new TwitterAPIExchange($settings);
+echo $twitter->setGetfield($getfield)
+             ->buildOauth($url, $requestMethod)
+             ->performRequest();
 
 ?>
