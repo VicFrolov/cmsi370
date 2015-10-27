@@ -9,8 +9,8 @@ $(function () {
         	console.log(result);
 
         	for (i = 0; i < result.statuses.length; i++) {
-				$("#fromTweets").append("Username: " + result.statuses[i].user.screen_name + '<br/>');
-        		$("#fromTweets").append("Tweet: " + result.statuses[i].text + '<br/>');
+				$("#fromTweets").append('<b>'+ "Username: " + '</b>' + result.statuses[i].user.screen_name + '<br/>');
+        		$("#fromTweets").append('<b>'+ "Tweet: " + '</b>' + result.statuses[i].text + '<br/>'+ '<br/>');
 
 
         	}
