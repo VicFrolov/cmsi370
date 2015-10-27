@@ -79,6 +79,16 @@
 	padding-left: 1%;
 }
 
+.no-overflow {
+    overflow: hidden;
+    max-height: 450px;
+    min-height: 450px;
+    max-width:600px;
+    overflow-y:auto;
+    background-color: #eeeeee;
+    opacity: 0.8;
+}
+
 .jumbotron h5 {
 	margin-top:40px;
 	margin-right:  0px;
