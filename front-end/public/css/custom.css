@@ -95,3 +95,16 @@
 .row-custom {
     padding-bottom:10px;
 }
+
+html, body {
+    height:100%;
+}
+
+
+.container {
+    height:100%;
+}
+
+#tweetsAroundMe {
+    padding-top: 50px;
+}

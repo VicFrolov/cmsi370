@@ -11,16 +11,32 @@ var T = new Twit({
   , access_token_secret:  'oVfSUB613mtSgsfNdrg5KbLLtlHIXwSMDnmaXiKwfSh8R'
 })
 
+
+app.get('/myform', function(req, res){ 
+    var myText = req.query.mytext; //mytext is the name of your input box
+    res.send('Your Text:' +myText); 
+}); 
+
 //get based on search term, count, location, etc
 app.get('/tw', function (req, res) {
-	T.get('search/tweets', { q: 'beverly hills playhouse', count: 100}, function(err, data, response) {
+	T.get('search/tweets', { q: 'LMU', count: 100}, function(err, data, response) {
     res.send(data);
   });
 });
+
+
+//
+// get `funny` twitter users
+//
+app.get('/funnytw', function (req, res) {
+  T.get('users/suggestions/:slug', { slug: 'funny' }, function (err, data, response) {
+    res.send(data);
+  });
+});
+
 
 var server = app.listen(3000, function () {
   var host = server.address().address;
   var port = server.address().port;
   console.log('Example app listening at http://%s:%s', host, port);
-
 });
