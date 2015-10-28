@@ -80,13 +80,15 @@
 }
 
 .no-overflow {
+    padding-top:10px;
+    padding-left:15px;
+    padding-right:15px;
     overflow: hidden;
     max-height: 450px;
     min-height: 450px;
     max-width:600px;
     overflow-y:auto;
-    background-color: #eeeeee;
-    opacity: 0.8;
+    background-color: #E6E6E6;
 }
 
 .jumbotron h5 {

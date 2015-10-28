@@ -81,7 +81,7 @@
             </div>
 
             <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
-	            <label for="searchword" class="control-label"> Searchword(s) (Optional) </label>
+	            <label for="searchword" class="control-label"> Searchword (Optional) </label>
 	                <input type="text" class="form-control" id="searchme" placeholder="i.e. party" aria-describedby="basic-addon1">
 	        </div>
 
@@ -106,14 +106,31 @@
                 <br>
                 <button id="search-button" class="btn btn-info">Find Tweets!</button>
             </div> 
-
         </div>
 
         <p>Tweets will appear below(Please scroll to see all):</p>
 	 	
-        <div class="panel no-overflow">
-	        <p id="fromTweets"></p>
-        </div>
+        <div class="row">
+            <div class="col-lg-6 col-md-9 col-sm-9 col-xs-12">
+                <div class="panel no-overflow">
+                    <p id="fromTweets"></p>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-12 col-sm-12 col-xs12">
+                <p><strong>Some Latitude/Longitude values to use while the auto-fill textbook is in the works: </strong></p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                <p>Loyola Marymount University </p>
+                <p>New York City </p>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                <p><strong>Lon:</strong> -118.417405 ;  <strong>Lat:</strong> 33.9704170 </p>
+                <p><strong>Lon:</strong> -74.005941 ;  <strong>Lat:</strong> 40.712784 </p>
+            </div>
+        </div> <!-- end row for panel and help -->
 	</div> <!-- End Container -->
 
 
@@ -139,21 +156,14 @@
 				    </select>
 				</div>
 
-                <button id="search-button-slug" class="btn btn-info">Find Users!</button>
+                <p><button id="search-button-slug" class="btn btn-info">Find Users!</button></p>
             </div>
         </div>
 
-        <div class="row row-custom" >
-            <div class="col-lg-2 col-md-3 col-xs-12 col-sm-12">
-                <br>
-            </div> 
-
-        </div>
-
         <p>Tweets will appear below:</p>
-	 	<div class="panel no-overflow">
-	        <p id="fromCategories"></p>
-	    </div>
+        <div class="panel no-overflow">
+        <p id="fromCategories"></p>
+
 	</div>
 
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
