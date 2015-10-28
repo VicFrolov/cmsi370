@@ -4,11 +4,11 @@ $(function () {
         $.getJSON(
             "http://localhost:3000/tw",
 
-            { 	geoSearchWord: $("#searchme").val(),
+            { 	
+                geoSearchWord: $("#searchme").val(),
             	geoSearchWordLat: $("#searchLat").val(),
                 geoSearchWordLon: $("#searchLon").val(),
                 geoSearchWordRad: $("#searchRadius").val()
-
         	}
 
         ).done(function (result) {
@@ -22,20 +22,17 @@ $(function () {
         		} else {
         			$("#fromTweets").append('<b>'+ "GeoLocation: " + '</b>' + "Cannot be identified" + '<br/>' + '<br/>')
         		}
-
         	}
-
         });
     });
 
     $("#search-button-slug").click(function() {
         $.getJSON(
 
-            //URL of web service
             "http://localhost:3000/funnytw",
 
-            { slug: $("#categorySearch").val() 
-            
+            { 
+                slug: $("#categorySearch").val()
             }
 
         ).done(function (result) {
@@ -44,9 +41,7 @@ $(function () {
 				$("#fromCategories").append('<b>'+ "Username: " + '</b>' + result.users[i].screen_name + '<br/>');
 				$("#fromCategories").append('<b>'+ "Description: " + '</b>' + result.users[i].description + '<br/>');
 				$("#fromCategories").append('<b>'+ "Number of Followers: " + '</b>' + result.users[i].followers_count + '<br/>' + '<br/>');
-
         	}
-
         });
     });	
 });
