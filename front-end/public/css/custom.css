@@ -1,5 +1,6 @@
 .navbar-inverse {
 	background-image: linear-gradient(to bottom,#9CD3E0 0,#9CD3E0 100%);
+    border-color:#9CD3E0;
 }
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
@@ -10,22 +11,22 @@
 
 /*next two are for navbar links + hover*/
 .navbar-inverse .navbar-nav>li>a {
-	color:#ffffff;
+	color:#2E2E2E;
 }
 
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
-    color: #ffffff;
+    color: #2E2E2E;
     background-color:#6EB3C3;
 }
 
 
 /*Next two are for navbarbrand + navbarbrand hover*/
 .navbar-inverse .navbar-brand {
-	color:#000000;
+	color:#434343;
 }
 
 .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
-    color: #000000;
+    color: #434343;
     background-color: #6EB3C3;
 
 }
@@ -88,7 +89,7 @@
     min-height: 450px;
     max-width:600px;
     overflow-y:auto;
-    background-color: #E6E6E6;
+    background-color: #F4F4F4;
 }
 
 .jumbotron h5 {

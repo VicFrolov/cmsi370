@@ -89,7 +89,6 @@
                 <div class="form-group">
 				    <label for="sel1">Radius</label>
 				    <select class="form-control" id="searchRadius">
-				        <option value="">No Radius</option>
 				        <option value="1mi">1 Mile</option>
 				        <option value="5mi">5 Mile</option>
                         <option value="10mi">10 Mile</option>
@@ -100,6 +99,27 @@
 				</div>
             </div>      
         </div>
+
+        <input type="checkbox" onclick="getLocation()"> Use Current Location </class>
+
+        <script>
+            var x = document.getElementById("searchLat");
+            var y = document.getElementById("searchLon");
+
+            function getLocation() {
+                x.value = "Please wait...";
+                y.value = "Loading location..."
+                if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                } else {
+                    x.value = "not supported by browser.";
+                }
+            }
+            function showPosition(position) { 
+                x.value = position.coords.latitude;
+                y.value = position.coords.longitude;
+            }
+        </script>
 
         <div class="row row-custom" >
             <div class="col-lg-2 col-md-3 col-xs-12 col-sm-12">
@@ -127,8 +147,8 @@
             </div>
 
             <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
-                <p><strong>Lon:</strong> -118.417405 ;  <strong>Lat:</strong> 33.9704170 </p>
-                <p><strong>Lon:</strong> -74.005941 ;  <strong>Lat:</strong> 40.712784 </p>
+                <p><strong>Lat:</strong> 33.9704170 ; <strong>Lon:</strong> -118.417405</p>
+                <p><strong>Lat:</strong> 40.712784 ; <strong>Lon:</strong> -74.005941</p>
             </div>
         </div> <!-- end row for panel and help -->
 	</div> <!-- End Container -->
