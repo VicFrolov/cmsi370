@@ -12,8 +12,6 @@ var T = new Twit({
 })
 
 
-var searchLat;
-var searchLon;
 var LMULat = '33.9704170';
 var LMULon = '-118.4174050';
 var NYCLat = '40.712784';
@@ -22,17 +20,7 @@ var NYCLon = '-74.005941';
 
 // get based on search term, count, location, etc
 app.get('/tw', function (req, res) {
-    T.get('search/tweets', { q: req.query.q1, count: 100, geocode: [ req.query.q1Lat, req.query.q1Lon , req.query.q1Rad ]}, function(err, data, response) {
-        if (req.query.q1Location === "LMU") {
-            searchLat = LMULat;
-            searchLon = LMULon;
-        } else if (req.query.q1Location === "New York City") {
-            searchLat = NYCLat;
-            searchLon = NYCLon;
-        } else {
-            searchLat = 0;
-            searchLon = 0;
-        }
+    T.get('search/tweets', { q: req.query.geoSearchWord, count: 100, geocode: [ req.query.geoSearchWordLat, req.query.geoSearchWordLon , req.query.geoSearchWordRad ]}, function(err, data, response) {
         res.send(data);
     });
 });

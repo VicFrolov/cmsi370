@@ -4,10 +4,10 @@ $(function () {
         $.getJSON(
             "http://localhost:3000/tw",
 
-            { 	q1: $("#searchme").val(),
-            	q1Lat: $("#searchLat").val(),
-                q1Lon: $("#searchLon").val(),
-                q1Rad: $("#searchRadius").val()
+            { 	geoSearchWord: $("#searchme").val(),
+            	geoSearchWordLat: $("#searchLat").val(),
+                geoSearchWordLon: $("#searchLon").val(),
+                geoSearchWordRad: $("#searchRadius").val()
 
         	}
 
