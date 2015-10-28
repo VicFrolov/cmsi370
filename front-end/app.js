@@ -13,10 +13,10 @@ var T = new Twit({
 
 
 // get based on search term, count, location, etc
-app.get('/tw', function (req, res) {console.log(req.query.q1);
-	T.get('search/tweets', { q: req.query.q1, count: 100}, function(err, data, response) {
-    res.send(data);
-  });
+app.get('/tw', function (req, res) {
+    T.get('search/tweets', { q: req.query.q1, count: 100}, function(err, data, response) {
+        res.send(data);
+    });
 });
 
 
@@ -24,15 +24,15 @@ app.get('/tw', function (req, res) {console.log(req.query.q1);
 //  filter the twitter public stream by the word 'mango'.
 //
 app.get('/tw2', function (req, res) {
-  var stream = T.stream('statuses/filter', { track: 'mango' });
-  currentStream = [];
-  stream.on('tweet', function (tweet) {
-    currentStream.push(tweet);
-  });
+    var stream = T.stream('statuses/filter', { track: 'mango' });
+    currentStream = [];
+    stream.on('tweet', function (tweet) {
+        currentStream.push(tweet);
+    });
 });
 
 app.get('/currentStream', function (req,res) {
-  res.send(currentStream);
+    res.send(currentStream);
 })
 
 var currentStream = [];
@@ -41,15 +41,15 @@ var currentStream = [];
 //
 // get `specific` twitter users
 //
-app.get('/funnytw', function (req, res) {console.log(req.query);
-  T.get('users/suggestions/:slug', { slug: req.query.slug }, function (err, data, response) {
-    res.send(data);
-  });
+app.get('/funnytw', function (req, res) {
+    T.get('users/suggestions/:slug', { slug: req.query.slug }, function (err, data, response) {
+        res.send(data);
+    });
 });
 
 
 var server = app.listen(3000, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-  console.log('Example app listening at http://%s:%s', host, port);
+    var host = server.address().address;
+    var port = server.address().port;
+    console.log('Listening at http://%s:%s', host, port);
 });

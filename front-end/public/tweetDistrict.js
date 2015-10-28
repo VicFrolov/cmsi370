@@ -10,9 +10,12 @@ $(function () {
         	}
 
         ).done(function (result) {
+        	$("#fromTweets").empty();
         	for (i = 0; i < result.statuses.length; i++) {
 				$("#fromTweets").append('<b>'+ "Username: " + '</b>' + result.statuses[i].user.screen_name + '<br/>');
         		$("#fromTweets").append('<b>'+ "Tweet: " + '</b>' + result.statuses[i].text + '<br/>'+ '<br/>');
+        		$("#fromTweets").append('<b>'+ "Geocode: " + '</b>' + result.statuses[i].geocode + '<br/>'+ '<br/>');
+
         	}
 
         });
@@ -31,6 +34,7 @@ $(function () {
             }
 
         ).done(function (result) {
+        	$("#fromCategories").empty();
         	for (i = 0; i < result.users.length; i++) {
 				$("#fromCategories").append('<b>'+ "Username: " + '</b>' + result.users[i].screen_name + '<br/>');
 				$("#fromCategories").append('<b>'+ "Description: " + '</b>' + result.users[i].description + '<br/>');
