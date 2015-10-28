@@ -76,43 +76,40 @@
 
         </div>
 			
-        <p> Below is a stream of all tweets from the location of your choosing. Please enter a location, optional hashtag or search word, and a radius! 
+        <p> Below is a stream of all tweets from the location of your choosing. You must enter the latitude/longitude of any location in the world, an optional search word, and a radius! Soon, you will be able to simply type in a place, and it will automatically know it's lat/lon coordinates!
         </p>
-        <div class="row">
-            <div class="col-lg-4 col-md-4 col-xs-9 col-sm-9">
 
-            <label for="location" class="control-label"> Location </label>
-                <div class="input-group">
-                    <div class="input-group-btn" id="location">
-                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Where? <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            <li><a href="#">Current Location</a></li>
-                            <li><a href="#">Somewhere Else</a></li>
-                        </ul>
-                    </div><!-- /btn-group -->
-                    <input type="text" class="form-control" id="searchLocation" placeholder="Anywhere in the world"aria-label="basic-addon1">
-                </div><!-- /input-group -->
+        <div class="row">
+            <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
+
+            	<label for="latitude" class="control-label"> Latitude </label>
+                <input type="text" class="form-control" id="searchLat" placeholder="i.e. 40.712784" aria-describedby="basic-addon1">
             </div>
             
-            <div class="col-lg-4 col-md-4 col-xs-9 col-sm-9">
-            <label for="searchword" class="control-label"> Searchword (Optional) </label>
-                <input type="text" class="form-control" id="searchme" placeholder="Pick a word, any word" aria-describedby="basic-addon1">
+            <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
+
+            	<label for="longitude" class="control-label"> Longitude </label>
+                <input type="text" class="form-control" id="searchLon" placeholder="i.e. -74.005941" aria-describedby="basic-addon1">
             </div>
-            <div class="col-lg-2 col-md-4 col-xs-12 col-sm-12">
-                <div class="btn-group">
-                    <button class="btn btn-default btn-md dropdown-toggle" id="radius" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Radius <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">1 miles</a></li>
-                        <li><a href="#">5 miles</a></li>
-                        <li><a href="#">10 miles</a></li>
-                        <li><a href="#">25 miles</a></li>
-                        <li><a href="#">50 miles</a></li>    
-                        <li><a href="#">100 miles</a></li>                                                
-                    </ul>
-                </div>
+
+
+            <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
+	            <label for="searchword" class="control-label"> Searchword (Optional) </label>
+	                <input type="text" class="form-control" id="searchme" placeholder="i.e. party" aria-describedby="basic-addon1">
+	            </div>
+            <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
+                <div class="form-group">
+				    <label for="sel1">Miles</label>
+				    <select class="form-control" id="searchRadius">
+				        <option value="">No Radius</option>
+				        <option value="1mi">1 Mile</option>
+				        <option value="5mi">5 Mile</option>
+                        <option value="10mi">10 Mile</option>
+						<option value="25mi">25 Mile</option>
+                        <option value="50mi">50 Mile</option>
+                        <option value="100mi">100 Mile</option>
+				    </select>
+				</div>
             </div>      
         </div>
 

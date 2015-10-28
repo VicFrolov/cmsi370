@@ -5,19 +5,20 @@ $(function () {
             "http://localhost:3000/tw",
 
             { 	q1: $("#searchme").val(),
-            	q1Location: $("#searchLocation").val()
-        	
+            	q1Lat: $("#searchLat").val(),
+                q1Lon: $("#searchLon").val(),
+                q1Rad: $("#searchRadius").val()
+
         	}
 
         ).done(function (result) {
-        	console.log(result);
         	$("#fromTweets").empty();
         	for (i = 0; i < result.statuses.length; i++) {
 				$("#fromTweets").append('<b>'+ "Username: " + '</b>' + result.statuses[i].user.screen_name + '<br/>');
         		$("#fromTweets").append('<b>'+ "Tweet: " + '</b>' + result.statuses[i].text + '<br/>');
 
         		if (result.statuses[i].geo !== null) {
-					$("#fromTweets").append('<b>'+ "GeoLocation: " + '</b>' + "Lat: " +  result.statuses[i].geo.coordinates[0] + "Lon: " +  result.statuses[i].geo.coordinates[1] + '<br/>'+ '<br/>');
+					$("#fromTweets").append('<b>'+ "GeoLocation: " + '</b>' + "Lat: " +  result.statuses[i].geo.coordinates[0] + " Lon: " +  result.statuses[i].geo.coordinates[1] + '<br/>'+ '<br/>');
         		} else {
         			$("#fromTweets").append('<b>'+ "GeoLocation: " + '</b>' + "Cannot be identified" + '<br/>' + '<br/>')
         		}

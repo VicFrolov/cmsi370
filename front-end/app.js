@@ -22,7 +22,7 @@ var NYCLon = '-74.005941';
 
 // get based on search term, count, location, etc
 app.get('/tw', function (req, res) {
-    T.get('search/tweets', { q: req.query.q1, count: 100, geocode: [ searchLat, searchLon, '5mi' ]}, function(err, data, response) {
+    T.get('search/tweets', { q: req.query.q1, count: 100, geocode: [ req.query.q1Lat, req.query.q1Lon , req.query.q1Rad ]}, function(err, data, response) {
         if (req.query.q1Location === "LMU") {
             searchLat = LMULat;
             searchLon = LMULon;
