@@ -12,24 +12,37 @@ var T = new Twit({
 })
 
 
-app.get('/myform', function(req, res){ 
-    var myText = req.query.mytext; //mytext is the name of your input box
-    res.send('Your Text:' +myText); 
-}); 
-
-//get based on search term, count, location, etc
-app.get('/tw', function (req, res) {
-	T.get('search/tweets', { q: 'LMU', count: 100}, function(err, data, response) {
+// get based on search term, count, location, etc
+app.get('/tw', function (req, res) {console.log(req.query.q1);
+	T.get('search/tweets', { q: req.query.q1, count: 100}, function(err, data, response) {
     res.send(data);
   });
 });
 
 
 //
-// get `funny` twitter users
+//  filter the twitter public stream by the word 'mango'.
 //
-app.get('/funnytw', function (req, res) {
-  T.get('users/suggestions/:slug', { slug: 'funny' }, function (err, data, response) {
+app.get('/tw2', function (req, res) {
+  var stream = T.stream('statuses/filter', { track: 'mango' });
+  currentStream = [];
+  stream.on('tweet', function (tweet) {
+    currentStream.push(tweet);
+  });
+});
+
+app.get('/currentStream', function (req,res) {
+  res.send(currentStream);
+})
+
+var currentStream = [];
+
+
+//
+// get `specific` twitter users
+//
+app.get('/funnytw', function (req, res) {console.log(req.query);
+  T.get('users/suggestions/:slug', { slug: req.query.slug }, function (err, data, response) {
     res.send(data);
   });
 });
