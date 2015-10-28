@@ -100,26 +100,7 @@
             </div>      
         </div>
 
-        <input type="checkbox" onclick="getLocation()"> Use Current Location </class>
-
-        <script>
-            var x = document.getElementById("searchLat");
-            var y = document.getElementById("searchLon");
-
-            function getLocation() {
-                x.value = "Please wait...";
-                y.value = "Loading location..."
-                if (navigator.geolocation) {
-                    navigator.geolocation.getCurrentPosition(showPosition);
-                } else {
-                    x.value = "not supported by browser.";
-                }
-            }
-            function showPosition(position) { 
-                x.value = position.coords.latitude;
-                y.value = position.coords.longitude;
-            }
-        </script>
+        <input type="checkbox" id="geoCheckBox"> Use Current Location </class>
 
         <div class="row row-custom" >
             <div class="col-lg-2 col-md-3 col-xs-12 col-sm-12">
@@ -135,17 +116,10 @@
                 </div>
             </div>
 
-            <div class="col-lg-6 col-md-12 col-sm-12 col-xs12">
-                <p><strong>Some Latitude/Longitude values to use while the auto-fill textbook is in the works: </strong></p>
-            </div>
-
             <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
-                <p>Loyola Marymount University </p>
-                <p>New York City </p>
-            </div>
-
-            <div class="col-lg-3 col-md-6 col-sm-6 col-xs-6">
+                Loyola Marymount University
                 <p><strong>Lat:</strong> 33.9704170 ; <strong>Lon:</strong> -118.417405</p>
+                New York City
                 <p><strong>Lat:</strong> 40.712784 ; <strong>Lon:</strong> -74.005941</p>
             </div>
         </div> <!-- end row for panel and help -->
@@ -182,6 +156,8 @@
             <p id="fromCategories">Users will Appear here</p>
         </div>
 
+
+    <script src="geoLocation.js"></script>
 	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 	<script src="tweetDistrict.js">	</script>
