@@ -29,6 +29,12 @@ app.get('/funnytw', function (req, res) {
     });
 });
 
+// Get trending worldwide
+app.get('/trendstw', function (req, res) {
+    T.get('trends/place', {id: req.query.trendingSearch }, function (err, data, response) {
+        res.send(data);
+    });
+});
 
 
 var server = app.listen(3000, function () {
