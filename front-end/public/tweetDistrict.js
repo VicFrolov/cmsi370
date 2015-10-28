@@ -2,26 +2,30 @@ $(function () {
 
     $("#search-button").click(function() {
         $.getJSON(
-            //URL of web service
             "http://localhost:3000/tw",
 
-            { q1: $("#searchme").val()
+            { 	q1: $("#searchme").val(),
+            	q1Location: $("#searchLocation").val()
         	
         	}
 
         ).done(function (result) {
+        	console.log(result);
         	$("#fromTweets").empty();
         	for (i = 0; i < result.statuses.length; i++) {
 				$("#fromTweets").append('<b>'+ "Username: " + '</b>' + result.statuses[i].user.screen_name + '<br/>');
-        		$("#fromTweets").append('<b>'+ "Tweet: " + '</b>' + result.statuses[i].text + '<br/>'+ '<br/>');
-        		$("#fromTweets").append('<b>'+ "Geocode: " + '</b>' + result.statuses[i].geocode + '<br/>'+ '<br/>');
+        		$("#fromTweets").append('<b>'+ "Tweet: " + '</b>' + result.statuses[i].text + '<br/>');
+
+        		if (result.statuses[i].geo !== null) {
+					$("#fromTweets").append('<b>'+ "GeoLocation: " + '</b>' + "Lat: " +  result.statuses[i].geo.coordinates[0] + "Lon: " +  result.statuses[i].geo.coordinates[1] + '<br/>'+ '<br/>');
+        		} else {
+        			$("#fromTweets").append('<b>'+ "GeoLocation: " + '</b>' + "Cannot be identified" + '<br/>' + '<br/>')
+        		}
 
         	}
 
         });
     });
-
-
 
     $("#search-button-slug").click(function() {
         $.getJSON(
