@@ -97,7 +97,7 @@
     padding-bottom:10px;
 }
 
-#tweetsAroundMe, #tweetCategories, #tweetsTrending {
+#tweetsAroundMe, #tweetCategories, #tweetsTrending, #FAQ {
     padding-top: 50px;
 }
 
@@ -118,4 +118,8 @@
     max-width:600px;
     overflow-y:auto;
     background-color: #F4F4F4;
+}
+
+#accordion {
+    margin-bottom:450px;
 }

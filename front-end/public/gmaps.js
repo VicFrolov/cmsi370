@@ -12,7 +12,7 @@ $(document).ready(function(){
         var mapOptions = {
             center: latlng,
             scrollWheel: false,
-            zoom: 13
+            zoom: 1
         };
       
         var marker = new google.maps.Marker({
