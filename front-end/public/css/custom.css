@@ -39,7 +39,7 @@
 /*jumbotron background and padding*/
 .jumbotron {
     position: relative;
-    background: #000 url("http://allanbbeaton.com/wp-content/uploads/2013/03/photodune-2602459-dog-on-the-phone-m.jpg") center center;
+    background: #000 url("../images/cover.jpg") center center;
     width: 100%;
     height: 100%;
     background-size: cover;
@@ -122,4 +122,8 @@
 
 #accordion {
     margin-bottom:450px;
+}
+
+.container.odd {
+    background-color: #dddddd;
 }
