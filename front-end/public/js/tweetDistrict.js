@@ -24,7 +24,28 @@ $(function () {
         		}
         	}
         });
+
+
+
+        // Drop marker on user's current location in Map
+        var LatValue = parseFloat(document.getElementById( "searchLat" ).value);
+        var LonValue = parseFloat(document.getElementById( "searchLon").value);
+        var myLatLng = {lat:  LatValue, lng: LonValue};
+
+        var map = new google.maps.Map(document.getElementById('map-canvas'), {
+            zoom: 12,
+            center: myLatLng
+        });
+
+        var marker = new google.maps.Marker({
+            position: myLatLng,
+            map: map,
+            title: 'Hello World!'
+        });
+        // End Map actions
+
     });
+
 
     $("#search-button-slug").click(function() {
         $.getJSON(

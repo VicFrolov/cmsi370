@@ -1,29 +1,8 @@
+function initMap() {
+  var myLatLng = {lat: 30.363, lng: -118.044};
 
-$(document).ready(function(){
-
-    /* google maps -----------------------------------------------------*/
-    google.maps.event.addDomListener(window, 'load', initialize);
-
-    function initialize() {
-
-      /* position Amsterdam */
-        var latlng = new google.maps.LatLng(39.5, -98.35);
-
-        var mapOptions = {
-            center: latlng,
-            scrollWheel: false,
-            zoom: 2
-        };
-      
-        var marker = new google.maps.Marker({
-            position: latlng,
-            url: '/',
-            animation: google.maps.Animation.DROP
-        });
-      
-        var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
-        marker.setMap(map);
-
-    };
-    /* end google maps -----------------------------------------------------*/
-});
+  var map = new google.maps.Map(document.getElementById('map-canvas'), {
+    zoom: 2,
+    center: myLatLng
+  });
+}
