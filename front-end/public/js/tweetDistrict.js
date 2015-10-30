@@ -9,7 +9,8 @@ $(function () {
         var map = new google.maps.Map(document.getElementById('map-canvas'), {
             zoom: 12,
             center: myLatLng
-        });              
+        });
+
         $.getJSON(
             "http://localhost:3000/tw",
 
@@ -42,7 +43,7 @@ $(function () {
                     newMarker = new google.maps.Marker({
                         position: myLatLng,
                         map: map,
-                        title: 'Hello World!'
+                        animation: google.maps.Animation.DROP,
                     });
 
                     console.log(LatValue + " " + LonValue);
@@ -50,6 +51,7 @@ $(function () {
         			$("#fromTweets").append('<b>' + "GeoLocation: " + '</b>' + "Cannot be identified" + '<br/>' + '<br/>')
         		}
         	}
+
         });
     });
 
