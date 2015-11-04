@@ -1,5 +1,5 @@
 .navbar-inverse {
-	background-image: linear-gradient(to bottom,#9CD3E0 0,#9CD3E0 100%);
+	background-image: linear-gradient(to bottom,#7ec6d7 0,#7ec6d7 100%);
     border:none;
 }
 
@@ -109,18 +109,27 @@
 
 /*panels for tweets*/
 .no-overflow {
-    padding-top:10px;
-    padding-left:15px;
-    padding-right:15px;
+    padding-top:20px;
+    padding-left:30px;
+    padding-right:30px;
     overflow: hidden;
     max-height: 450px;
     min-height: 450px;
     max-width:600px;
     overflow-y:auto;
-    background-color: #F4F4F4;
+    background-color: #c9e7ee;
 }
 
+.tweet-inputs {
+    padding-top:10px;
+    padding-left:15px;
+    padding-right:15px;
+    padding-bottom:10px;
+}
 
+.a {
+    color: #000000;
+}
 
 #accordion {
     margin-bottom:450px;
@@ -129,3 +138,5 @@
 .container.odd {
     background-color: #dddddd;
 }
+
+/*Button color*/

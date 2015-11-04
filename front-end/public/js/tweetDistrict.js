@@ -22,19 +22,19 @@ $(function () {
         	}
 
         ).done(function (result) {
-        	$("#fromTweets").empty();   
+        	$("#fromTweets").empty();  
+            $("#tweetClear").empty(); 
 
-            console.log(result);
         	for (i = 0; i < result.statuses.length; i++) {
 
+                var userURL = '<a href="https://twitter.com/' + result.statuses[i].user.screen_name + '">'
                 //Print out username and status
-				$("#fromTweets").append('<b>' + "Username: " + '</b>' + result.statuses[i].user.screen_name + '<br/>');
-        		$("#fromTweets").append('<b>' + "Tweet: " + '</b>' + result.statuses[i].text + '<br/>');
-                $("#fromTweets").append('<b>' + "Created at: " + '</b>' + result.statuses[i].created_at + '<br/>');
+                $("#fromTweets").append('<div class="panel tweet-inputs">' + userURL + result.statuses[i].user.screen_name + '</a>' + '<br/>' + '<b>' + "Tweet: " + '</b>' + result.statuses[i].text + '<br/>'
+                    + '<b>' + "Created at: " + '</b>' + result.statuses[i].created_at + '<br/>' + '</div>')
 
         		if (result.statuses[i].geo !== null) {
                     //Print out the geolocation
-					$("#fromTweets").append('<b>' + "GeoLocation: " + '</b>' + "Lat: " + result.statuses[i].geo.coordinates[0] + " Lon: " + result.statuses[i].geo.coordinates[1] + '<br/>'+ '<br/>');
+					// $("#fromTweets").append('<b>' + "GeoLocation: " + '</b>' + "Lat: " + result.statuses[i].geo.coordinates[0] + " Lon: " + result.statuses[i].geo.coordinates[1] + '<br/>'+ '<br/>');
 
                     //dropping a new marker on the map for each tweet that has lat/lon values
                     //Multiplying by i * 0.0005 to space them out in case they are from the same gelocation while still holding
@@ -48,7 +48,7 @@ $(function () {
                         animation: google.maps.Animation.DROP,
                     });
         		} else {
-        			$("#fromTweets").append('<b>' + "GeoLocation: " + '</b>' + "Cannot be identified" + '<br/>' + '<br/>')
+        			// $("#fromTweets").append('<b>' + "GeoLocation: " + '</b>' + "Cannot be identified" + '<br/>' + '<br/>')
         		}
         	}
 
