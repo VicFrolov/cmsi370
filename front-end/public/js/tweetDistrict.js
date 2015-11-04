@@ -26,17 +26,12 @@ $(function () {
             $("#tweetClear").empty(); 
 
         	for (i = 0; i < result.statuses.length; i++) {
-
+                var userLatLonInput = ""
                 var userURL = '<a href="https://twitter.com/' + result.statuses[i].user.screen_name + '" class="nav-link">'
-                //Print out username and status
-                $("#fromTweets").append('<div class="panel tweet-inputs">' + userURL + result.statuses[i].user.screen_name + '</a>' + 
-                    '<p class="tweet-text-input">' + result.statuses[i].text + '</p>' + '<br/>' +
-                     '<p class="tweet-text-time">' + result.statuses[i].created_at + '</p>' + '</div>')
 
         		if (result.statuses[i].geo !== null) {
                     //Print out the geolocation
-					// $("#fromTweets").append('<b>' + "GeoLocation: " + '</b>' + "Lat: " + result.statuses[i].geo.coordinates[0] + " Lon: " + result.statuses[i].geo.coordinates[1] + '<br/>'+ '<br/>');
-
+					userLatLonInput = ", Lat: " + result.statuses[i].geo.coordinates[0] + " Lon: " + result.statuses[i].geo.coordinates[1]
                     //dropping a new marker on the map for each tweet that has lat/lon values
                     //Multiplying by i * 0.0005 to space them out in case they are from the same gelocation while still holding
                     //the integrity of their location.
@@ -48,9 +43,11 @@ $(function () {
                         map: map,
                         animation: google.maps.Animation.DROP,
                     });
-        		} else {
-        			// $("#fromTweets").append('<b>' + "GeoLocation: " + '</b>' + "Cannot be identified" + '<br/>' + '<br/>')
         		}
+                //Print out username and status
+                $("#fromTweets").append('<div class="panel tweet-inputs">' + userURL + result.statuses[i].user.screen_name + '</a>' + 
+                    '<p class="tweet-text-input">' + result.statuses[i].text + '</p>' + '<br/>' +
+                    '<p class="tweet-text-time">' + result.statuses[i].created_at + userLatLonInput + '</p>' + '</div>')
         	}
 
         });
