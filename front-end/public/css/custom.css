@@ -1,38 +1,58 @@
 .navbar-inverse {
-	background-image: linear-gradient(to bottom,#7ec6d7 0,#7ec6d7 100%);
-    border:none;
+	background-image: linear-gradient(to bottom,#ffffff 0,#ffffff 100%);
+    border-color:#E4ECF2;
+    opacity: 0.95;
+    font-size:14px;
+
 }
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
     text-shadow: 0 0px 0 rgba(0,0,0,.25);
 }
-
+	
 
 /*next two are for navbar links + hover*/
 .navbar-inverse .navbar-nav>li>a {
-	color:#2E2E2E;
+	color:#838994;
+	padding-top:25px;
+	padding-bottom:25px;
+	font-size: 15px;
+    line-height: 1.4444;
+	letter-spacing:-0.5px;
 }
 
 .navbar-inverse .navbar-nav>li>a:focus, .navbar-inverse .navbar-nav>li>a:hover {
-    color: #2E2E2E;
-    background-color:#c6d77e;
+    color: #333;
 }
 
 
 /*Next two are for navbarbrand + navbarbrand hover*/
 .navbar-inverse .navbar-brand {
-	color:#434343;
+	color:#FE471A;
+	padding-top:25px;
+	padding-bottom:25px;
+	padding-left:120px;
+	font-size:18px;	
 }
 
 .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
-    color: #434343;
-    background-color: #c6d77e;
+    color: #FE471A;
+
 
 }
 
 .navbar-inverse .navbar-brand {
     font-weight: 700;
     font-family: Lobster, cursive;
+}
+
+
+.navbar-brand-img {
+	padding-top:15px;
+	padding-bottom:10px;
+	margin-right:40px;
+	max-height:80px;
+	max-width:80px;
 }
 
 /*jumbotron background and padding*/
