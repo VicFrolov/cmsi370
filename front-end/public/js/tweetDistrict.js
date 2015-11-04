@@ -27,10 +27,11 @@ $(function () {
 
         	for (i = 0; i < result.statuses.length; i++) {
 
-                var userURL = '<a href="https://twitter.com/' + result.statuses[i].user.screen_name + '">'
+                var userURL = '<a href="https://twitter.com/' + result.statuses[i].user.screen_name + '" class="nav-link">'
                 //Print out username and status
-                $("#fromTweets").append('<div class="panel tweet-inputs">' + userURL + result.statuses[i].user.screen_name + '</a>' + '<br/>' + '<b>' + "Tweet: " + '</b>' + result.statuses[i].text + '<br/>'
-                    + '<b>' + "Created at: " + '</b>' + result.statuses[i].created_at + '<br/>' + '</div>')
+                $("#fromTweets").append('<div class="panel tweet-inputs">' + userURL + result.statuses[i].user.screen_name + '</a>' + 
+                    '<p class="tweet-text-input">' + result.statuses[i].text + '</p>' + '<br/>' +
+                     '<p class="tweet-text-time">' + result.statuses[i].created_at + '</p>' + '</div>')
 
         		if (result.statuses[i].geo !== null) {
                     //Print out the geolocation

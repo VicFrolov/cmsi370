@@ -121,10 +121,10 @@
 }
 
 .tweet-inputs {
-    padding-top:10px;
+    padding-top:15px;
     padding-left:15px;
     padding-right:15px;
-    padding-bottom:10px;
+    padding-bottom:15px;
 }
 
 .a {
@@ -139,4 +139,45 @@
     background-color: #dddddd;
 }
 
-/*Button color*/
+/*
+
+NAVLINKS
+*/
+
+a.nav-link:link
+{
+   color: #194651;
+   text-decoration: none;
+}
+a.nav-link:visited
+{
+   color: #194651;
+   text-decoration: none;
+}
+
+a.nav-link:hover
+{
+   color: #1ec6d7;
+   text-decoration: none;
+}
+a.nav-link:active
+{
+   color: #ccc;
+   text-decoration: none;
+}
+
+
+p.tweet-text-input {
+
+    margin-right:10px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    font-size: 12px;
+
+}
+p.tweet-text-time {
+    margin-left:5px;
+    margin-right:10px;
+    margin-bottom: 0px;
+    font-size: 10px;
+}
