@@ -24,29 +24,29 @@ $(function () {
         ).done(function (result) {
         	$("#fromTweets").empty();   
 
+            console.log(result);
         	for (i = 0; i < result.statuses.length; i++) {
 
                 //Print out username and status
 				$("#fromTweets").append('<b>' + "Username: " + '</b>' + result.statuses[i].user.screen_name + '<br/>');
         		$("#fromTweets").append('<b>' + "Tweet: " + '</b>' + result.statuses[i].text + '<br/>');
+                $("#fromTweets").append('<b>' + "Created at: " + '</b>' + result.statuses[i].created_at + '<br/>');
 
         		if (result.statuses[i].geo !== null) {
                     //Print out the geolocation
 					$("#fromTweets").append('<b>' + "GeoLocation: " + '</b>' + "Lat: " + result.statuses[i].geo.coordinates[0] + " Lon: " + result.statuses[i].geo.coordinates[1] + '<br/>'+ '<br/>');
 
                     //dropping a new marker on the map for each tweet that has lat/lon values
-                    var newMarker = "marker" + i;
-                    LatValue = parseFloat(result.statuses[i].geo.coordinates[0]);
-                    LonValue = parseFloat(result.statuses[i].geo.coordinates[1]);
+                    //Multiplying by i * 0.0005 to space them out in case they are from the same gelocation while still holding
+                    //the integrity of their location.
+                    LatValue = parseFloat(result.statuses[i].geo.coordinates[0] + i*0.0005);
+                    LonValue = parseFloat(result.statuses[i].geo.coordinates[1] + i*0.0005);
                     myLatLng = {lat: LatValue, lng: LonValue};
-
-                    newMarker = new google.maps.Marker({
+                    var newMarker = new google.maps.Marker({
                         position: myLatLng,
                         map: map,
                         animation: google.maps.Animation.DROP,
                     });
-
-                    console.log(LatValue + " " + LonValue);
         		} else {
         			$("#fromTweets").append('<b>' + "GeoLocation: " + '</b>' + "Cannot be identified" + '<br/>' + '<br/>')
         		}
@@ -86,8 +86,6 @@ $(function () {
             }
 
         ).done(function (result) {
-            console.log(result);
-
             $("#fromTrending").empty();
             for( i = 0; i < result[0].trends.length; i++) {
                 $("#fromTrending").append('<b>' + "Trending: " + '</b>' + result[0].trends[i].name + '<br/>');
