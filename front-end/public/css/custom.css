@@ -198,3 +198,25 @@ p.tweet-text-time {
     font-size: 10px;
 }
 
+/*button*/
+
+.btn-info {
+    background-image: -webkit-linear-gradient(top,#5bc0de 0,#5bc0de 100%);
+    background-image: -o-linear-gradient(top,#5bc0de 0,#5bc0de 100%);
+    background-image: -webkit-gradient(linear,left top,left bottom,from(#5bc0de),to(#5bc0de));
+    background-image: linear-gradient(to bottom,#5bc0de 0,#5bc0de 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5bc0de', endColorstr='#5bc0de', GradientType=0);
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+    background-repeat: repeat-x;
+    border-color: #5bc0de;
+}
+
+.btn-info:hover {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #269abc;
+}
+.btn-info:focus, .btn-info:hover {
+    background-color: #5bc0de;
+    background-position: 0 -15px;
+}
