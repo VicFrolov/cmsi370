@@ -23,7 +23,7 @@ $(function () {
 
         ).done(function (result) {
         	$("#fromTweets").empty();  
-            $("#tweetClear").empty(); 
+            $("#tweetClear").remove(); 
 
         	for (i = 0; i < result.statuses.length; i++) {
                 var userLatLonInput = ""
