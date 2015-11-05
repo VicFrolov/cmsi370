@@ -68,40 +68,42 @@
       <h2> Search for Tweets <small> Go ahead, discover around you! </small> </h2>
     </div>
       
-    <p> Below is a stream of all tweets from the location of your choosing. Please enter the latitude/longitude of any location in the world (or check the "Use Current Location" box), an optional search word, and a radius! Please use this link to get the Latitude/Longitude of any place in the world: <a href="http://mygeoposition.com/"> http://mygeoposition.com/ </a> </p>
+    <div class="panel groupInputTweets">  
+      <p> Below is a stream of all tweets from the location of your choosing. Please enter the latitude/longitude of any location in the world (or check the "Use Current Location" box), an optional search word, and a radius! Please use this link to get the Latitude/Longitude of any place in the world: <a href="http://mygeoposition.com/"> http://mygeoposition.com/ </a> </p>
 
-    <div class="row">
-      <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
-        <label for="latitude" class="control-label"> Latitude </label>
-        <input type="text" class="form-control" id="searchLat" placeholder="i.e. 40.712784" aria-describedby="basic-addon1">
-      </div>
-      
-      <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
-        <label for="longitude" class="control-label"> Longitude </label>
-        <input type="text" class="form-control" id="searchLon" placeholder="i.e. -74.005941" aria-describedby="basic-addon1">
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
-        <label for="searchword" class="control-label"> Searchword (Optional) </label>
-          <input type="text" class="form-control" id="searchme" placeholder="i.e. party" aria-describedby="basic-addon1">
-      </div>
-
-      <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
-        <div class="form-group">
-          <label for="sel1">Radius</label>
-          <select class="form-control" id="searchRadius">
-            <option value="1mi">1 Mile</option>
-            <option value="5mi">5 Miles</option>
-            <option value="10mi">10 Miles</option>
-            <option value="25mi">25 Miles</option>
-            <option value="50mi">50 Miles</option>
-            <option value="100mi">100 Miles</option>
-          </select>
+      <div class="row">
+        <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
+          <label for="latitude" class="control-label"> Latitude </label>
+          <input type="text" class="form-control" id="searchLat" placeholder="i.e. 40.712784" aria-describedby="basic-addon1">
         </div>
-      </div>      
-    </div>
+        
+        <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
+          <label for="longitude" class="control-label"> Longitude </label>
+          <input type="text" class="form-control" id="searchLon" placeholder="i.e. -74.005941" aria-describedby="basic-addon1">
+        </div>
 
-    <input type="radio" id="geoCheckBox">  Use Current Location</class>
+        <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
+          <label for="searchword" class="control-label"> Searchword (Optional) </label>
+            <input type="text" class="form-control" id="searchme" placeholder="i.e. party" aria-describedby="basic-addon1">
+        </div>
+
+        <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
+          <div class="form-group">
+            <label for="sel1">Radius</label>
+            <select class="form-control" id="searchRadius">
+              <option value="1mi">1 Mile</option>
+              <option value="5mi">5 Miles</option>
+              <option value="10mi">10 Miles</option>
+              <option value="25mi">25 Miles</option>
+              <option value="50mi">50 Miles</option>
+              <option value="100mi">100 Miles</option>
+            </select>
+          </div>
+        </div>      
+      </div>
+
+      <input type="radio" id="geoCheckBox">  Use Current Location</class>
+    </div> <!-- END PANEL FOR SEARCH WORDS -->
 
     <div class="row row-custom" >
       <div class="col-lg-2 col-md-3 col-xs-12 col-sm-12">
@@ -250,6 +252,6 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtMZjxFgkMSzO5QGCJNIBxVBiMVjw9oKk&signed_in=true&callback=initMap"></script>
   <script src="js/gmaps.js"> </script>
   <script src="js/tweetDistrict.js">  </script>
-
 </body>
+
 </html>

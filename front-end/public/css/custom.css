@@ -68,16 +68,11 @@
 }
 
 .jumbotron-overlay {
-    background-color: #801515;
-    background-repeat: repeat;
+    background-color: #b25f4b;
     height: 100%;
-    left: 0;
     position: absolute;
-    top: 0;
     width: 100%;
-    z-index: 0;
-    color:#ffffff;
-    opacity: 0.4;
+    opacity: 0.5;
 }
 
 .jumbotron h1 {
@@ -137,7 +132,7 @@
     min-height: 450px;
     max-width:600px;
     overflow-y:auto;
-    border-color:#DADFE3;
+    border-color:#D3D3D3;
 }
 
 .tweet-inputs {
@@ -145,6 +140,7 @@
     padding-left:15px;
     padding-right:15px;
     padding-bottom:15px;
+    background-color: rgba(254,71,26, 0.1);
 }
 
 #accordion {
@@ -231,10 +227,19 @@ p.tweet-text-time {
 }
 
 .odd {
-   background-color: rgba(6, 21, 57, 0.2);
+   background-color: rgba(6, 21, 57, 0.1);
 }
 
 .container-fluid {
 	padding-left:150px;
 	padding-right:150px;
 }
+
+.groupInputTweets {
+	padding-bottom:5px;
+	padding-top:5px;
+	padding-left:10px;
+	padding-right:10px;
+	border-color:#D3D3D3;
+	margin-bottom: 0px;
+	}
