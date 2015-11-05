@@ -246,7 +246,7 @@ p.tweet-text-time {
 	border-color:#D3D3D3;
 	margin-bottom: 0px;
 }
-/*next two are in charge of tweet header and tagline*/
+/*next three are in charge of tweet header and tagline*/
 
 .tweetsIntroP {
     margin-top:0px;
@@ -267,4 +267,8 @@ p.tweet-text-time {
     font-size:20px;
     color:#dddddd;
     letter-spacing:5px;
+}
+
+#search-button {
+    margin-right:5px;
 }

@@ -71,8 +71,10 @@
   </div> <!-- end tweet search header -->
 
   <div class="container">      
-    <div class="panel groupInputTweets">  
-      <p> Below is a stream of all tweets from the location of your choosing. Please enter the latitude/longitude of any location in the world (or check the "Use Current Location" box), an optional search word, and a radius! Please use this link to get the Latitude/Longitude of any place in the world: <a href="http://mygeoposition.com/"> http://mygeoposition.com/ </a> </p>
+    <div class="panel groupInputTweets"> 
+      <div class="panel-heading"> 
+        <p> Below is a stream of all tweets from the location of your choosing. Please enter the latitude/longitude of any location in the world (or check the "Use Current Location" box), an optional search word, and a radius! Please use this link to get the Latitude/Longitude of any place in the world: <a href="http://mygeoposition.com/"> http://mygeoposition.com/ </a> </p>
+      </div>
 
       <div class="row">
         <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
@@ -105,16 +107,14 @@
         </div>      
       </div>
 
-      <input type="radio" id="geoCheckBox">  Use Current Location</class>
+
+      <div class="row row-custom" >
+        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+          <button id="search-button" class="btn btn-primary">Find Tweets!</button>
+          <input type="radio" id="geoCheckBox">  Use Current Location</class>
+        </div> 
+      </div>
     </div> <!-- END PANEL FOR SEARCH WORDS -->
-
-    <div class="row row-custom" >
-      <div class="col-lg-2 col-md-3 col-xs-12 col-sm-12">
-        <br>
-        <button id="search-button" class="btn btn-primary">Find Tweets!</button>
-      </div> 
-    </div>
-
     <div class="row">
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
         <div class="panel no-overflow">
