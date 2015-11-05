@@ -37,8 +37,6 @@
 
 .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
     color: #FE471A;
-
-
 }
 
 .navbar-inverse .navbar-brand {
@@ -64,11 +62,13 @@
     background-size: cover;
     color: #FFFFFF;
     overflow: hidden;
+    margin-bottom:0px;
+    border-radius: 0 !important;
+
 }
 
 .jumbotron-overlay {
-    background-color: rgba(44, 62, 80, 0.3);
-    background-image: url("../images/pattern.png");
+    background-color: #801515;
     background-repeat: repeat;
     height: 100%;
     left: 0;
@@ -77,9 +77,8 @@
     width: 100%;
     z-index: 0;
     color:#ffffff;
-    opacity: 0.7;
+    opacity: 0.4;
 }
-
 
 .jumbotron h1 {
 
@@ -118,7 +117,8 @@
 }
 
 #tweetsAroundMe, #tweetCategories, #tweetsTrending, #FAQ {
-    padding-top: 50px;
+    padding-top: 60px;
+    color:#FE471A;
 }
 
 #map-canvas {
@@ -200,23 +200,41 @@ p.tweet-text-time {
 
 /*button*/
 
-.btn-info {
-    background-image: -webkit-linear-gradient(top,#5bc0de 0,#5bc0de 100%);
-    background-image: -o-linear-gradient(top,#5bc0de 0,#5bc0de 100%);
-    background-image: -webkit-gradient(linear,left top,left bottom,from(#5bc0de),to(#5bc0de));
-    background-image: linear-gradient(to bottom,#5bc0de 0,#5bc0de 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#5bc0de', endColorstr='#5bc0de', GradientType=0);
-    filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
-    background-repeat: repeat-x;
-    border-color: #5bc0de;
+.btn {
+    padding: 10px 20px;
+    border: 0 none;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+ 
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+ 
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+ 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+ 
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
 }
 
-.btn-info:hover {
-    color: #fff;
-    background-color: #5bc0de;
-    border-color: #269abc;
+.form-control:focus {
+  border-color: #d78f7e;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 0, 0, 0.6);
 }
-.btn-info:focus, .btn-info:hover {
-    background-color: #5bc0de;
-    background-position: 0 -15px;
+
+.odd {
+   background-color: rgba(6, 21, 57, 0.2);
+}
+
+.container-fluid {
+	padding-left:150px;
+	padding-right:150px;
 }

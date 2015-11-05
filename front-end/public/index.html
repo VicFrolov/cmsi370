@@ -29,15 +29,16 @@
       </div> <!-- end header -->
       <div class="collapse navbar-collapse " id="navbar-collapse"> 
         <ul class="nav navbar-nav">
-          <li> <a href="#tweetsAroundMe">Show Tweets</a>
-          <li> <a href="#tweetCategories">Show Categories</a>
-          <li> <a href="#tweetsTrending">Show Trending</a>
-          <li> <a href="#FAQ">FAQ</a>
+          <li> <a href="#tweetsAroundMe">Show Tweets</a> </li>
+          <li> <a href="#tweetCategories">Show Categories</a> </li>
+          <li> <a href="#tweetsTrending">Show Trending</a> </li>
+          <li> <a href="#FAQ">FAQ</a> </li>
         </ul>
       </div>
     </div>
   </nav>
   <!-- END Navbar -->
+
   <div class="jumbotron">
     <div class="jumbotron-overlay"> </div>
     <div class="container text-center">
@@ -55,14 +56,14 @@
       </div>
 
       <div class="btn-group text-center">
-        <a href="#tweetsAroundMe" class="btn btn-lg btn-info"> Show tweets around me! </a>
-        <a href="#FAQ" class="btn btn-lg btn-info"> FAQ </a>
+        <a href="#tweetsAroundMe" class="btn btn-lg btn-primary"> Show tweets around me! </a>
+        <a href="#FAQ" class="btn btn-lg btn-primary"> FAQ </a>
       </div>
     </div> <!-- end container -->
   </div>
   <!-- JUMBOtron -->
 
-  <div class="container">
+  <div class="container-fluid">
     <div class="page-header" id="tweetsAroundMe">
       <h2> Search for Tweets <small> Go ahead, discover around you! </small> </h2>
     </div>
@@ -100,12 +101,12 @@
       </div>      
     </div>
 
-    <input type="checkbox" id="geoCheckBox">Use Current Location</class>
+    <input type="radio" id="geoCheckBox">  Use Current Location</class>
 
     <div class="row row-custom" >
       <div class="col-lg-2 col-md-3 col-xs-12 col-sm-12">
         <br>
-        <button id="search-button" class="btn btn-info">Find Tweets!</button>
+        <button id="search-button" class="btn btn-primary">Find Tweets!</button>
       </div> 
     </div>
 
@@ -126,8 +127,8 @@
   </div> <!-- End Container -->
 
 
-  <div class="container" id="tweetCategories"> 
-    <div class="page-header" >
+  <div class="container-fluid odd" > 
+    <div class="page-header" id="tweetCategories" >
       <h2> Search for Categories <small> Go ahead, discover some sweet users! </small> </h2>
     </div>
 
@@ -148,16 +149,16 @@
           </select>
         </div>
 
-        <p><button id="search-button-slug" class="btn btn-info">Show me!</button></p>
+        <p><button id="search-button-slug" class="btn btn-primary">Show me!</button></p>
       </div>
     </div>
 
     <div class="panel no-overflow">
       <p id="fromCategories">Trending Tweets will Appear here</p>
     </div>
-  </div>
+  </div> <!-- End Container -->
 
-  <div class="container">
+  <div class="container-fluid">
     <div class="page-header" id="tweetsTrending">
       <h2> Search for Trending Tweets <small> Go ahead, see what's trending worldwide. </small> </h2>
     </div>
@@ -179,7 +180,7 @@
           </select>
         </div>
 
-        <p><button id="search-button-trending" class="btn btn-info">Find Users!</button></p>
+        <p><button id="search-button-trending" class="btn btn-primary">Find Users!</button></p>
       </div>
     </div>
 
@@ -187,11 +188,10 @@
     <div class="panel no-overflow">
       <p id="fromTrending">Trending topics will Appear here</p>
     </div>
+  </div> <!-- End Container -->
 
-  </div>
 
-
-  <div class="container">
+  <div class="container-fluid odd">
     <div class="page-header" id="FAQ">
       <h2> FAQ </h2>
     </div>
@@ -240,9 +240,9 @@
         </div>
       </div>
     </div>
-
+   </div>
   </div>
-  
+
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="js/geoLocation.js"></script>
