@@ -1,23 +1,16 @@
+
+
 $(function () {
 
     $("#search-button").click(function() {
-        // variables for google maps
-        var LatValue = parseFloat($("#searchLat").val());
-        var LonValue = parseFloat($("#searchLon").val());
-        var myLatLng = {lat: LatValue, lng: LonValue};
-
-        var map = new google.maps.Map(document.getElementById('map-canvas'), {
-            zoom: 12,
-            center: myLatLng
-        });
 
         $.getJSON(
             "http://localhost:3000/tw",
 
             { 	
                 geoSearchWord: $("#searchme").val(),
-            	geoSearchWordLat: $("#searchLat").val(),
-                geoSearchWordLon: $("#searchLon").val(),
+            	geoSearchWordLat: userLat,
+                geoSearchWordLon: userLon,
                 geoSearchWordRad: $("#searchRadius").val()
         	}
 
@@ -30,20 +23,13 @@ $(function () {
                 var userURL = '<a href="https://twitter.com/' + result.statuses[i].user.screen_name + '" class="nav-link">'
 
         		if (result.statuses[i].geo !== null) {
-                    //Print out the geolocation
-					userLatLonInput = ", Lat: " + result.statuses[i].geo.coordinates[0] + " Lon: " + result.statuses[i].geo.coordinates[1]
-                    //dropping a new marker on the map for each tweet that has lat/lon values
-                    //Multiplying by i * 0.0005 to space them out in case they are from the same gelocation while still holding
-                    //the integrity of their location.
-                    LatValue = parseFloat(result.statuses[i].geo.coordinates[0] + i*0.0005);
-                    LonValue = parseFloat(result.statuses[i].geo.coordinates[1] + i*0.0005);
-                    myLatLng = {lat: LatValue, lng: LonValue};
-                    var newMarker = new google.maps.Marker({
-                        position: myLatLng,
-                        map: map,
-                        animation: google.maps.Animation.DROP,
-                    });
+                    //Print out the geolocation && Drop Marker
+                    LatValue = parseFloat(result.statuses[i].geo.coordinates[0]);
+                    LonValue = parseFloat(result.statuses[i].geo.coordinates[1]);
+					userLatLonInput = ", Lat: " + LatValue + " Lon: " + LonValue;
+                    newMarkerDrop();
         		}
+                zoomToLastMarker();
                 //Print out username and status
                 $("#fromTweets").append('<div class="panel tweet-inputs">' + userURL + result.statuses[i].user.screen_name + '</a>' + 
                     '<p class="tweet-text-input">' + result.statuses[i].text + '</p>' + '<br/>' +
@@ -52,6 +38,37 @@ $(function () {
 
         });
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     $("#search-button-slug").click(function() {

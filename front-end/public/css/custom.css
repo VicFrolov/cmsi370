@@ -117,11 +117,15 @@
     padding-bottom:10px;
 }
 
-#tweetsAroundMe, #tweetCategories, #tweetsTrending, #FAQ {
+#tweetCategories, #tweetsTrending, #FAQ {
     padding-top: 60px;
     color:rgba(51,166,204, 1);
 }
 
+/*Jump to the proper location when clicking on Show Tweets in*/
+#tweetsAroundMe {
+    padding-top:74px;
+}
 #map-canvas {
     max-height: 450px;
     min-height: 450px;
@@ -130,9 +134,9 @@
 
 /*panels for tweets*/
 .no-overflow {
-    padding-top:20px;
-    padding-left:30px;
-    padding-right:30px;
+    padding-top:0px;
+    padding-left:0px;
+    padding-right:0px;
     overflow: hidden;
     max-height: 450px;
     min-height: 450px;
@@ -246,7 +250,15 @@ p.tweet-text-time {
 	border-color:#D3D3D3;
 	margin-bottom: 0px;
 }
-/*next three are in charge of tweet header and tagline*/
+
+/*
+//
+    Panel for Tweets + css for their appearance
+    next three are in charge of tweet header and tagline
+//
+*/
+
+
 
 .tweetsIntroP {
     margin-top:0px;
@@ -271,4 +283,8 @@ p.tweet-text-time {
 
 #search-button {
     margin-right:5px;
+}
+
+.tweetSearchIntroParagraph {
+    margin-top:10px;
 }

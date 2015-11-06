@@ -10,7 +10,6 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
   <link rel="stylesheet" type="text/css" href="css/custom.css">
-
 </head>
 
 <body>
@@ -61,7 +60,7 @@
       </div>
     </div> <!-- end container -->
   </div>
-  <!-- JUMBOtron -->
+  <!-- END JUMBOtron -->
 
   <div class="container" id="tweetsAroundMe"> 
     <div class="panel tweetsIntroP">
@@ -72,20 +71,15 @@
 
   <div class="container">      
     <div class="panel groupInputTweets"> 
-      <div class="panel-heading"> 
-        <p> Below is a stream of all tweets from the location of your choosing. Please enter the latitude/longitude of any location in the world (or check the "Use Current Location" box), an optional search word, and a radius! Please use this link to get the Latitude/Longitude of any place in the world: <a href="http://mygeoposition.com/"> http://mygeoposition.com/ </a> </p>
-      </div>
+      <p class="tweetSearchIntroParagraph"> Below is a stream of all tweets from the location of your choosing. Please enter the latitude/longitude of any location in the world (or check the "Use Current Location" box), an optional search word, and a radius! Please use this link to get the Latitude/Longitude of any place in the world: <a href="http://mygeoposition.com/"> http://mygeoposition.com/ </a> </p>
+
 
       <div class="row">
         <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
-          <label for="latitude" class="control-label"> Latitude </label>
-          <input type="text" class="form-control" id="searchLat" placeholder="i.e. 40.712784" aria-describedby="basic-addon1">
+          <label for="location" class="control-label"> Location </label>
+          <input type="text" class="form-control" id="location" placeholder="i.e. Staples Center" aria-describedby="basic-addon1">
         </div>
-        
-        <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
-          <label for="longitude" class="control-label"> Longitude </label>
-          <input type="text" class="form-control" id="searchLon" placeholder="i.e. -74.005941" aria-describedby="basic-addon1">
-        </div>
+      
 
         <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
           <label for="searchword" class="control-label"> Searchword (Optional) </label>
@@ -124,9 +118,11 @@
           </div>
         </div>
       </div>
-
+      
       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-        <div id="map-canvas"></div>
+        <div class="panel panel-default">
+          <div id="map-canvas"></div>
+        </div>
       </div>
     </div> <!-- end row for panel and help -->
   </div> <!-- End Container -->
@@ -247,11 +243,13 @@
    </div>
   </div>
 
+
+
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <script src="js/geoLocation.js"></script>
   <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAtMZjxFgkMSzO5QGCJNIBxVBiMVjw9oKk&signed_in=true&callback=initMap"></script>
+  src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places&key=AIzaSyAtMZjxFgkMSzO5QGCJNIBxVBiMVjw9oKk&callback=initMap"> </script>
   <script src="js/gmaps.js"> </script>
   <script src="js/tweetDistrict.js">  </script>
 </body>
