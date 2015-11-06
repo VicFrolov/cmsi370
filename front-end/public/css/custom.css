@@ -140,7 +140,6 @@
     overflow: hidden;
     max-height: 450px;
     min-height: 450px;
-    max-width:600px;
     overflow-y:auto;
     border-color:#D3D3D3;
 }
@@ -150,7 +149,7 @@
     padding-left:15px;
     padding-right:15px;
     padding-bottom:15px;
-    background-color: rgba(51,166,204, 0.1);
+    background-color: rgba(51,166,204, 0.03);
 }
 
 #accordion {
@@ -287,4 +286,8 @@ p.tweet-text-time {
 
 .tweetSearchIntroParagraph {
     margin-top:10px;
+}
+
+#geoCheckBox {
+    margin-left:3px;
 }

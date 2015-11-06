@@ -1,3 +1,21 @@
+//linkifies text
+function linkify (inputText) {
+    var replacedText, replacePattern1, replacePattern2, replacePattern3;
+
+    //URLs starting with http://, https://, or ftp://
+    replacePattern1 = /(\b(https?|ftp):\/\/[-A-Z0-9+&@#\/%?=~_|!:,.;]*[-A-Z0-9+&@#\/%=~_|])/gim;
+    replacedText = inputText.replace(replacePattern1, '<a href="$1" target="_blank">$1</a>');
+
+    //URLs starting with "www." (without // before it, or it'd re-link the ones done above).
+    replacePattern2 = /(^|[^\/])(www\.[\S]+(\b|$))/gim;
+    replacedText = replacedText.replace(replacePattern2, '$1<a href="http://$2" target="_blank">$2</a>');
+
+    //Change email addresses to mailto:: links.
+    replacePattern3 = /(([a-zA-Z0-9\-\_\.])+@[a-zA-Z\_]+?(\.[a-zA-Z]{2,6})+)/gim;
+    replacedText = replacedText.replace(replacePattern3, '<a href="mailto:$1">$1</a>');
+
+    return replacedText;
+}
 
 
 $(function () {
@@ -17,11 +35,13 @@ $(function () {
         ).done(function (result) {
         	$("#fromTweets").empty();  
             $("#tweetClear").remove(); 
+            console.log(result);
 
         	for (i = 0; i < result.statuses.length; i++) {
-                var userLatLonInput = ""
+                var userPostedImage = "";
+                var userLatLonInput = "";
                 var userURL = '<a href="https://twitter.com/' + result.statuses[i].user.screen_name + '" class="nav-link">'
-
+                var linkifiedText = linkify(result.statuses[i].text);
         		if (result.statuses[i].geo !== null) {
                     //Print out the geolocation && Drop Marker
                     LatValue = parseFloat(result.statuses[i].geo.coordinates[0]);
@@ -29,46 +49,19 @@ $(function () {
 					userLatLonInput = ", Lat: " + LatValue + " Lon: " + LonValue;
                     newMarkerDrop();
         		}
+
+                if (result.statuses[i].entities.media !== undefined) {
+                    // var image  = result.statuses[i].entities.media[0].media_url_https
+
+                }
                 //Print out username and status
                 $("#fromTweets").append('<div class="panel tweet-inputs">' + userURL + result.statuses[i].user.screen_name + '</a>' + 
-                    '<p class="tweet-text-input">' + result.statuses[i].text + '</p>' + '<br/>' +
-                    '<p class="tweet-text-time">' + result.statuses[i].created_at + userLatLonInput + '</p>' + '</div>')
+                    '<p class="tweet-text-input">' + linkifiedText + '</p>' + '<br/>' +
+                    '<p class="tweet-text-time">' + result.statuses[i].created_at + userLatLonInput + '</p>' + userPostedImage + '</div>')
         	}
             zoomToLastMarker();
-
         });
     });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     $("#search-button-slug").click(function() {

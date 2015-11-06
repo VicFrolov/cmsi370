@@ -55,7 +55,7 @@
       </div>
 
       <div class="btn-group text-center">
-        <a href="#tweetsAroundMe" class="btn btn-lg btn-primary"> Show tweets around me! </a>
+        <a href="#tweetsAroundMe" class="btn btn-lg btn-primary"> SEARCH TWEETS! </a>
         <a href="#FAQ" class="btn btn-lg btn-primary"> FAQ </a>
       </div>
     </div> <!-- end container -->
@@ -71,22 +71,18 @@
 
   <div class="container">      
     <div class="panel groupInputTweets"> 
-      <p class="tweetSearchIntroParagraph"> Below is a stream of all tweets from the location of your choosing. Please enter any location on the planet, an optional search word, and a radius! </a> </p>
-
+      <p class="tweetSearchIntroParagraph"> Below is a stream of all tweets from the location of your choosing. Please enter any location on the planet, an optional search word, and a radius! </p> 
 
       <div class="row">
-        <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
+        <div class="col-lg-3 col-md-3 col-xs-6 col-sm-3">
           <label for="location" class="control-label"> Location </label>
           <input type="text" class="form-control" id="location" placeholder="i.e. Staples Center" aria-describedby="basic-addon1">
         </div>
-      
-
-        <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
+        <div class="col-lg-3 col-md-3 col-xs-6 col-sm-3">
           <label for="searchword" class="control-label"> Searchword (Optional) </label>
             <input type="text" class="form-control" id="searchme" placeholder="i.e. party" aria-describedby="basic-addon1">
         </div>
-
-        <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
+        <div class="col-lg-3 col-md-3 col-xs-6 col-sm-3">
           <div class="form-group">
             <label for="sel1">Radius</label>
             <select class="form-control" id="searchRadius">
@@ -99,16 +95,17 @@
             </select>
           </div>
         </div> 
-
-        <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
+        <div class="col-lg-3 col-md-3 col-xs-6 col-sm-3">
           <button id="search-button" class="btn btn-primary">Find Tweets!</button>
-<!--           <input type="radio" id="geoCheckBox">  Use Current Location</class>
- -->  </div> 
+        </div> 
       </div>
 
 
       <div class="row row-custom" >
-
+        <div class="col-lg-11 col-md-3 col-xs-9 col-sm-3">
+          <input type="checkbox" id="geoCheckBox">  Use Current Location</class>
+          <a href="#FAQ"> Help </a>
+        </div> 
       </div>
     </div> <!-- END PANEL FOR SEARCH WORDS -->
     <div class="row">
@@ -181,11 +178,9 @@
             <option value="2123260">Saint-Petersburg</option>
           </select>
         </div>
-
         <p><button id="search-button-trending" class="btn btn-primary">Find Users!</button></p>
       </div>
     </div>
-
 
     <div class="panel no-overflow">
       <p id="fromTrending">Trending topics will Appear here</p>
@@ -194,6 +189,7 @@
 
 
   <div class="container">
+
     <div class="page-header" id="FAQ">
       <h2> FAQ </h2>
     </div>
@@ -225,7 +221,6 @@
             <li>Are you an artists? See who's talking about you where, to help you decide on your next venue. </li>
             <li>Find local deals that are advertised on Twitter </li>
             <li>Find a job by searching <strong>hiring</strong> </li>
-
           </ul>
         </div>
       </div>
@@ -244,8 +239,6 @@
     </div>
    </div>
   </div>
-
-
 
   <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
