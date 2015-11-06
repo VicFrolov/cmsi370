@@ -207,7 +207,7 @@ p.tweet-text-time {
 /*button*/
 
 .btn {
-    padding: 10px 20px;
+    padding: 8px 20px;
     border: 0 none;
     letter-spacing: 1px;
     text-transform: uppercase;
@@ -282,7 +282,7 @@ p.tweet-text-time {
 }
 
 #search-button {
-    margin-right:5px;
+    margin-top:23px;
 }
 
 .tweetSearchIntroParagraph {

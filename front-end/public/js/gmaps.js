@@ -31,6 +31,7 @@ function newMarkerDrop() {
         map: map,
         animation: google.maps.Animation.DROP
     });
+    console.log(userLat);
 }
 
 function zoomToLastMarker() {

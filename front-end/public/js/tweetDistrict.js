@@ -29,12 +29,12 @@ $(function () {
 					userLatLonInput = ", Lat: " + LatValue + " Lon: " + LonValue;
                     newMarkerDrop();
         		}
-                zoomToLastMarker();
                 //Print out username and status
                 $("#fromTweets").append('<div class="panel tweet-inputs">' + userURL + result.statuses[i].user.screen_name + '</a>' + 
                     '<p class="tweet-text-input">' + result.statuses[i].text + '</p>' + '<br/>' +
                     '<p class="tweet-text-time">' + result.statuses[i].created_at + userLatLonInput + '</p>' + '</div>')
         	}
+            zoomToLastMarker();
 
         });
     });

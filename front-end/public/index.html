@@ -71,7 +71,7 @@
 
   <div class="container">      
     <div class="panel groupInputTweets"> 
-      <p class="tweetSearchIntroParagraph"> Below is a stream of all tweets from the location of your choosing. Please enter the latitude/longitude of any location in the world (or check the "Use Current Location" box), an optional search word, and a radius! Please use this link to get the Latitude/Longitude of any place in the world: <a href="http://mygeoposition.com/"> http://mygeoposition.com/ </a> </p>
+      <p class="tweetSearchIntroParagraph"> Below is a stream of all tweets from the location of your choosing. Please enter any location on the planet, an optional search word, and a radius! </a> </p>
 
 
       <div class="row">
@@ -98,15 +98,17 @@
               <option value="100mi">100 Miles</option>
             </select>
           </div>
-        </div>      
+        </div> 
+
+        <div class="col-lg-3 col-md-3 col-xs-9 col-sm-3">
+          <button id="search-button" class="btn btn-primary">Find Tweets!</button>
+<!--           <input type="radio" id="geoCheckBox">  Use Current Location</class>
+ -->  </div> 
       </div>
 
 
       <div class="row row-custom" >
-        <div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
-          <button id="search-button" class="btn btn-primary">Find Tweets!</button>
-          <input type="radio" id="geoCheckBox">  Use Current Location</class>
-        </div> 
+
       </div>
     </div> <!-- END PANEL FOR SEARCH WORDS -->
     <div class="row">
@@ -114,7 +116,7 @@
         <div class="panel no-overflow">
           <p id="fromTweets"> </p>
           <div class="panel tweet-inputs" id="tweetClear"> 
-            <p> Tweets will appear here (Scrolling enabled)<br>1) Enter Latitude and Longitude, or click on "Use Current Location". <br> 2) Enter an optional keyword, and a radius (defaults to 1 mile). <br>3) Click Find Tweets!</p>
+            <p> <strong>Tweets will appear here (Scrolling enabled)</strong> <br>1) Type in a location, or click on "Use Current Location". <br> 2) Enter an optional keyword, and a radius (defaults to 1 mile). <br>3) Click Find Tweets!</p>
           </div>
         </div>
       </div>
