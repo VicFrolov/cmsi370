@@ -18,6 +18,11 @@ function linkify (inputText) {
 }
 
 
+function noTweetsFoundAppend() {
+    return $("#fromTweets").append('<div class="panel tweet-inputs">' + '<p class="tweet-text-input">' + "Sorry, no tweets found" + '</p>' + '</div>')
+}
+
+
 $(function () {
 
     $("#search-button").click(function() {
@@ -35,13 +40,21 @@ $(function () {
         ).done(function (result) {
         	$("#fromTweets").empty();  
             $("#tweetClear").remove(); 
-            console.log(result);
+
+            if (result.statuses.length == 0) {
+                noTweetsFoundAppend();
+            }
 
         	for (i = 0; i < result.statuses.length; i++) {
                 var userPostedImage = "";
                 var userLatLonInput = "";
                 var userURL = '<a href="https://twitter.com/' + result.statuses[i].user.screen_name + '" class="nav-link">'
                 var linkifiedText = linkify(result.statuses[i].text);
+
+                var userImage = result.statuses[i].user.profile_image_url;
+
+
+
         		if (result.statuses[i].geo !== null) {
                     //Print out the geolocation && Drop Marker
                     LatValue = parseFloat(result.statuses[i].geo.coordinates[0]);
@@ -51,14 +64,16 @@ $(function () {
         		}
 
                 if (result.statuses[i].entities.media !== undefined) {
-                    // var image  = result.statuses[i].entities.media[0].media_url_https
+
+
 
                 }
                 //Print out username and status
-                $("#fromTweets").append('<div class="panel tweet-inputs">' + userURL + result.statuses[i].user.screen_name + '</a>' + 
+                $("#fromTweets").append('<div class="panel tweet-inputs">' + '<img src="' + userImage + '"">' + userURL + result.statuses[i].user.screen_name + '</a>' + 
                     '<p class="tweet-text-input">' + linkifiedText + '</p>' + '<br/>' +
-                    '<p class="tweet-text-time">' + result.statuses[i].created_at + userLatLonInput + '</p>' + userPostedImage + '</div>')
+                    '<p class="tweet-text-time">' + result.statuses[i].created_at + userLatLonInput + '</p>' + userPostedImage + '</div> ')
         	}
+
             zoomToLastMarker();
         });
     });
