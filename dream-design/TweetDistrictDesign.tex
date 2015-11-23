@@ -28,8 +28,12 @@ Once a user downloads and opens the app, they will be greeted with a landing pag
 
 % talk about the navbar thingy on the bottom
 
-\section{Main Page}
-The main page is where all the magic happens. When I tried using the app on my mobile device when I was out and about with some friends, we found that there were a few issues impeding us from having a great experience. The first issue was having to type in a search word, check the current location box, and clicking search each and every single time we tried looking up something around us. See Figure 1.
+\section{Main Funcitonality}
+
+\subsection{Searching}
+Before diving into the search functionality, it is important to note that all of the suggestions and current limitations are directly correlated to the usability metric of efficiency. The process of searching should be quick, simple and almost instantaneous, with optional extra steps for extra precision and only if the user demands it. It should not be forced upon them.
+
+When I tried using the app on my mobile device when I was out and about with some friends, we found that there were a few issues impeding us from having a great experience. The first issue was having to type in a search word, check the current location box, and clicking search each and every single time we tried looking up something around us. See Figure 1.
 
 \begin{figure}[H]
     \centering
@@ -40,7 +44,38 @@ The main page is where all the magic happens. When I tried using the app on my m
     \label{fig:example}
 \end{figure}
 
-In order to overcome the first hurdle of having two repetitively check the box, put in a radius, search word, and click search for each search (we tried looking up about 10 keywords to find events around us, and although it ultimately worked, the process was arduous), a streamlined, preset 
+In order to overcome the first hurdle of having to repetitively do a series of steps (we tried looking up about 10 keywords to find events around us, and although it ultimately worked, the process was arduous), a simplified search, as in figure 1 (b), would be ideal. It would be preset to search a certain radius from the user's current location. That way they simply just type in a word or sequence of words, and hit search. 
+
+Since the app is all about searching, it is important to have advanced search still available. Text near the top that says "More Search Options", once pressed, would animate the app to swipe to the right, similar to Yahoo Fantasy Football's top left button. See Figure 2.
+
+\begin{figure}[H]
+    \centering
+    \subfloat[Before button was pressed]{{\includegraphics[width=7cm]{beforeSearch} }}
+    \qquad
+    \subfloat[After button was pressed]{{\includegraphics[width=7cm]{afterSearch} }}
+    \caption{Old Search and New Search Template}
+    \label{fig:example}
+\end{figure}
+
+So before the button was pressed, the search tab would simply look like Figure 1 (b), and after the button is pressed, it would slide everything on the screen to the right, and would look close to what Figure 2 (b) looks like. But of course, instead of displaying Yahoo information, it would show optional fields such as: custom radius, custom location (using geocoding and geodecoding), excluding certain users (this was a small issue where sometimes a user would tweet 20 times about the same event), only displaying one tweet per user and excluding words and hashtags. The ability to save what the user input and make it become the "default" search should also be implemented. That way if the user always looks for "party" within a 3 mile radius of a specific location, they can do that with a single tap. Tapping on show less would slide the search back onto the screen, and would again look like figure 1 (b) above. The purpose of the animation is to draw attention to what is changing. 
+
+The ability to flick tweets that are of no interest should also be implemented. That way, if a user gets 100 tweets back from their search, if it is of no interest to them, they can swipe it left, which would not only remove the tweet from the list, but also remove a marker on the map associated to it. On the other end of the spectrum, they should be able to save tweets so that they can interact with them later, by swiping right. This would be saved and found under their "profile" tab. That way, they can at a later time share the tweet with friends, retweet it, direct message the user, or simply save it for whatever reason they want. Visually, this would look identical to the process of deleting or archiving mail on most mail apps, and would be accompanied by two different noises for each action. See Figure 3.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=7cm]{swipeDelete}
+    \caption{Old Search and New Search Template}
+    \label{fig:example}
+\end{figure}
+
+
+One final feature, which again would be to streamline searching, would be predefined searches. This way, if a user is looking for "party", they simply select "party" from a dropdown list, and the API is searched for multiple keywords predefined by the app. Twitter's API allows the use of "OR"
+
+
+%limitations of the API
+
+
+
 
 Another was that, since the map takes almost the full screen, scrolling to and away from it it was difficult, as if the user tries to scroll down the page but is within the map box boundary, he would zoom in or out of the map. There was about a quarter inch of space both to the left and right of the map that allowed the user to scroll the page. 
 
