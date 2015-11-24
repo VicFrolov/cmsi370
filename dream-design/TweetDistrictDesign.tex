@@ -155,6 +155,9 @@ Force touch should also be implemented, so that if a user hard-presses on a mark
 If a user doesn't know the address of a location, he should still be able to search it. There would be an unobstructive button in the top right corner of the map that says "search map location". If clicked, this would automatically jump to the search page. A thin banner at the top would display "map location saved for search", and it would disappear after 5 seconds. Now, when the user searches, the center location of the map that he had shown on the device would the location searched, and the radius would be the furthest distance from the center to an edge of the screen. This could be easily cleared in the advanced settings if the user wanted to return to searching his current location.
 
 \subsection{Tweets}
+Tweets are at the core of this app. When on the tweets page, it will simply display each tweet and all their information in white boxes, and approximately 4 to 5 tweets should be seen on the screen. the user can then scroll through the list to see what they found.
+
+Tweet layouts should be simple, minimal, and easy to distinguish. All data pulled from the API should be properly structured. Please see Markers Storing Data section for a description and an image of what the tweets should appear like.
 
 
 \subsubsection{Deleting/Saving Search Results}
@@ -169,8 +172,8 @@ The ability to flick individual tweets that are of no interest should also be im
 
 In case it is not obvious, as the user swipes, the entire box that contains the tweet would slide in a color (red or blue, depending on which action is occuring), and the more they swipe, the more the color slides in, until they finally reach the edge of the screen, on release, the tweet would be deleted/saved.
 
-
-% when talking about the main page, mention how when you were out it has to be easily accessible and searchable without any touch issues of scrolling (ie the map issue you currently have that takes up the full screen)
+\subsubsection{Map Integration}
+Navigating between tweets and the map page should be effortless and streamlined. A user should be able to press on a tweet (at the moment, I am thinking that pressing anywhere in the tweet box would bring you to the map, but I also want to test having a button that says "Show on map" within the tweet box. The problem with the "Show on map" is that every tweet will have it, and it will dirty up the screen, but if it is not there, the learnability of clicking on a tweet to get to the map part will be bad, as it is not an apparent action). Just like markers turning grey once a user presses on one, the same would happen for the tweets in the list. The box would change colors to clearly show the user has already looked up that tweet. And similarly to the gold hue to a marker if the user saved the tweet, the box containing the tweet information would turn gold to indicate that it is a saved tweet, and swiping to delete it will not be possible.
 
 
 
