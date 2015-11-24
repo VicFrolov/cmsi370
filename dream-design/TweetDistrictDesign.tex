@@ -21,7 +21,7 @@ Tweet District is an app that lets you find and interact with hundreds of tweets
 
 
 \section{Landing Page}
-Once a user downloads and opens the app, they will be greeted with a landing page with the logo, and app name that takes up a third of the screen. There will be one large button that allows the user to login to their existing twitter account (which will allow them to interact with the tweets, such as retweeting, sending direct messages, etc). Below the button will simply be clickable text that says "Use as Guest", allowing users to use the app without a twitter account. The logo, app name, button and text will be over a background color that will stay true to the app's theme. The background color will have opacity, and behind it there will be animations of users tweeting, partying, and shopping. Please see figure~\ref{fig:loginMock}.
+Once a user downloads and opens the app, they will be greeted with a landing page with the logo, and app name that takes up a third of the screen. There will be one large button that allows the user to login to their existing twitter account (which will allow them to interact with the tweets, such as retweeting, sending direct messages, etc). Below the button will simply be tappable text that says "Use as Guest", allowing users to use the app without a twitter account. The logo, app name, button and text will be over a background color that will stay true to the app's theme. The background color will have opacity, and behind it there will be animations of users tweeting, partying, and shopping. Please see figure~\ref{fig:loginMock}.
 
 \begin{figure}[H]
     \centering
@@ -40,7 +40,7 @@ The app's main functionality can be broken up into three sections:
 \item Displaying the tweets in an ordered fashion that is useful
 \end{itemize}
 
-Once a user either logs in to their Twitter account, or continues as guest, they would be greeted with the search page. All pages, including the search page, would have a navigational dock with buttons on the bottom of the screen, like in iOS's native Podcast app. Please see Figure~\ref{fig:navButtons} below.
+Once a user either logs in to their Twitter account, or continues as guest, they would be greeted with the search page. All pages, excluding the landing/home page, would have a navigational dock with buttons on the bottom of the screen, like in iOS's native Podcast app. Please see Figure~\ref{fig:navButtons} below.
 
 \begin{figure}[H]
     \centering
@@ -57,7 +57,7 @@ The button on the active page would glow, just as in Figure~\ref{fig:navButtons}
 Before diving into the search functionality, it is important to note that all of the suggestions and current limitations are directly correlated to the usability metric of efficiency. The process of searching should be quick, simple and almost instantaneous, with optional extra steps for extra precision and only if the user demands it. It should not be forced upon them.
 
 \subsubsection{Simplified Search}
-When I tried using the app on my mobile device when I was out and about with some friends, we found that there were a few issues impeding us from having a great experience. The first issue was having to type in a search word, check the current location box, and clicking search each and every single time we tried looking up something around us. See Figure~\ref{fig:SearchSimple}.
+When I tried using the app on my mobile device when I was out and about with some friends, we found that there were a few issues impeding us from having a great experience. The first issue was having to type in a search word, check the current location box, and tapping search each and every single time we tried looking up something around us. See Figure~\ref{fig:SearchSimple}.
 
 \begin{figure}[H]
     \centering
@@ -123,7 +123,7 @@ The map section would show a map with markers dropped that represent the locatio
 The grey boxes engulfing the two above images are to show what is not on the screen. So, the user would have to put their finger far left or far right on the screen, in that narrow white gap, to navigate the page without zooming on the map, or scrolling through the displayed tweets.
 
 \subsubsection{Markers Storing Data}
-Currently, the markers cannot be interacted with. Each marker should (and will) store the data of a tweet, so that when it is clicked on, it displays the user, and what they tweeted. It is hard to give an estimate of what the box width and length would be, but it should be large enough to display sufficient information, and small enough not to take up too much room on the mobile device. Some tweets would be cut off due to them being too long, or if they contain an image, and the cut off would be displayed with an ellipsis. Pressing anywhere on the box would make the box get larger, displaying all of the information. When the box is larger and displaying all of it's information, the users would also be able to click on a user ID to go to their twitter page, press on links to go wherever they link to, retweet the tweet, star it, create a new tweet with the same hashtag, and direct message the user who tweeted. Pressing again would make the box shrink to it's original size (as long as the user does not press on a link or a user ID).
+Currently, the markers cannot be interacted with. Each marker should (and will) store the data of a tweet, so that when it is pressed on, it displays the user, and what they tweeted. It is hard to give an estimate of what the box width and length would be, but it should be large enough to display sufficient information, and small enough not to take up too much room on the mobile device. Some tweets would be cut off due to them being too long, or if they contain an image, and the cut off would be displayed with an ellipsis. Pressing anywhere on the box would make the box get larger, displaying all of the information. When the box is larger and displaying all of it's information, the users would also be able to press on a user ID to go to their twitter page, press on links to go wherever they link to, retweet the tweet, star it, create a new tweet with the same hashtag, and direct message the user who tweeted. Pressing again would make the box shrink to it's original size (as long as the user does not press on a link or a user ID).
 
 Below is an example of how a marker would contain data. It is a screenshot of Padmapper, and a clicked marker that display information about a room being leased. See figure~\ref{fig:markerDisplay}
 
@@ -146,13 +146,13 @@ Note: the following paragraph also applies to what the Tweets would visually app
 Notice the ability to interact with the tweet. A user should be able to reply, retweet, star, delete and direct message the user. Basic principles of presentation are being incorporated, with bold text attracting the user's eye, grey and harder to see text not being as important. A minimal approach for a sleek look is the goal, with just a thin grey line to separate all the tweets. During testing, attempts to make the boxes more colorful were made, but they were far too distracting.
 
 \subsubsection{Marker States}
-Similar to general button guidelines, markers should be in obvious states based on what the user has done. At first, all markers will be of the same color, let's for now assume that color will be red. Once a user clicks on a tweet, the marker turns grey, to indicate it was already viewed. If a user decides to delete a tweet, it will remove it form the map, and from the Tweet list. If a user decided to save the tweet, it will now glow gold. The ability to delete the tweet will be locked, and it will only be deletable after the user removes the star.
+Similar to general button guidelines, markers should be in obvious states based on what the user has done. At first, all markers will be of the same color, let's for now assume that color will be red. Once a user taps on a tweet, the marker turns grey, to indicate it was already viewed. If a user decides to delete a tweet, it will remove it form the map, and from the Tweet list. If a user decided to save the tweet, it will now glow gold. The ability to delete the tweet will be locked, and it will only be deletable after the user removes the star.
 
 \subsubsection{Force Touch Implementation}
 Force touch should also be implemented, so that if a user hard-presses on a marker, it instantaneously shows them all the information, and the larger box that can be interacted with.
 
 \subsubsection{Searching Map Location}
-If a user doesn't know the address of a location, he should still be able to search it. There would be an unobstructive button in the top right corner of the map that says "search map location". If clicked, this would automatically jump to the search page. A thin banner at the top would display "map location saved for search", and it would disappear after 5 seconds. Now, when the user searches, the center location of the map that he had shown on the device would the location searched, and the radius would be the furthest distance from the center to an edge of the screen. This could be easily cleared in the advanced settings if the user wanted to return to searching his current location.
+If a user doesn't know the address of a location, he should still be able to search it. There would be an unobstructive button in the top right corner of the map that says "search map location". If pressed, this would automatically jump to the search page. A thin banner at the top would display "map location saved for search", and it would disappear after 5 seconds. Now, when the user searches, the center location of the map that he had shown on the device would the location searched, and the radius would be the furthest distance from the center to an edge of the screen. This could be easily cleared in the advanced settings if the user wanted to return to searching his current location.
 
 \subsection{Tweets}
 Tweets are at the core of this app. When on the tweets page, it will simply display each tweet and all their information in white boxes, and approximately 4 to 5 tweets should be seen on the screen. the user can then scroll through the list to see what they found.
@@ -160,7 +160,7 @@ Tweets are at the core of this app. When on the tweets page, it will simply disp
 Tweet layouts should be simple, minimal, and easy to distinguish. All data pulled from the API should be properly structured. Please see Markers Storing Data section for a description and an image of what the tweets should appear like.
 
 
-\subsubsection{Deleting/Saving Search Results}
+\subsubsection{Deleting/Saving Tweet Results}
 The ability to flick individual tweets that are of no interest should also be implemented. That way, if a user gets 100 tweets back from their search, if one or some of them are of interest to them, they can swipe it left, which would not only remove the tweet from the list, but also remove a marker on the map associated to it. On the other end of the spectrum, they should be able to save tweets so that they can interact with them later, by swiping right. This would be saved and found under their "profile" tab. That way, they can at a later time share the tweet with friends, retweet it, direct message the user, or simply save it for whatever reason they want. Visually, this would look identical to the process of deleting or archiving mail on most mail apps, and would be accompanied by two different noises for each action. See Figure~\ref{fig:swipeDelete}.
 
 \begin{figure}[H]
@@ -170,11 +170,39 @@ The ability to flick individual tweets that are of no interest should also be im
     \label{fig:swipeDelete}
 \end{figure}
 
-In case it is not obvious, as the user swipes, the entire box that contains the tweet would slide in a color (red or blue, depending on which action is occuring), and the more they swipe, the more the color slides in, until they finally reach the edge of the screen, on release, the tweet would be deleted/saved.
+In case it is not obvious, as the user swipes, the entire box that contains the tweet would slide in a color (red or blue, depending on which action is occurring), and the more they swipe, the more the color slides in, until they finally reach the edge of the screen, on release, the tweet would be deleted/saved.
 
 \subsubsection{Map Integration}
-Navigating between tweets and the map page should be effortless and streamlined. A user should be able to press on a tweet (at the moment, I am thinking that pressing anywhere in the tweet box would bring you to the map, but I also want to test having a button that says "Show on map" within the tweet box. The problem with the "Show on map" is that every tweet will have it, and it will dirty up the screen, but if it is not there, the learnability of clicking on a tweet to get to the map part will be bad, as it is not an apparent action). Just like markers turning grey once a user presses on one, the same would happen for the tweets in the list. The box would change colors to clearly show the user has already looked up that tweet. And similarly to the gold hue to a marker if the user saved the tweet, the box containing the tweet information would turn gold to indicate that it is a saved tweet, and swiping to delete it will not be possible.
+Navigating between tweets and the map page should be effortless and streamlined. A user should be able to press on a tweet (at the moment, I am thinking that pressing anywhere in the tweet box would bring you to the map, but I also want to test having a button that says "Show on map" within the tweet box. The problem with the "Show on map" is that every tweet will have it, and it will dirty up the screen, but if it is not there, the learnability of tapping on a tweet to get to the map part will be bad, as it is not an apparent action). Just like markers turning grey once a user presses on one, the same would happen for the tweets in the list. The box would change colors to clearly show the user has already looked up that tweet. And similarly to the gold hue to a marker if the user saved the tweet, the box containing the tweet information would turn gold to indicate that it is a saved tweet, and swiping to delete it will not be possible.
 
+\subsubsection{Clumping Tweets}
+Since sometimes a user would tweet more than once for the requested search word, clumping their tweets together would make the results easier to traverse. A small plus sign would be placed to the top left of their tweet box, when pressed, their username, photo, and name would remain in a box, but the height would be smaller, and then multiple smaller boxes, indented by half an inch from the left, to visualize they belong to that one user, would only display the tweet and time of the tweet. This should be on by default, but in advanced settings, users could disable this.
+
+\subsubsection{Interacting with Tweets}
+As mentioned before, there are several ways to interact with tweets. Aside for swiping to delete/save tweets (or tapping on links like the user ID or links within the tweet), the app user should be able to retweet, direct message, or just simply tweet from within the app. If a user pushes on either the retweet, direct message, or tweet buttons that appear in the bottom of the tweet box, a  flat box would appear, making everything else around it fuzzy, exactly like ForceTouch on the iPhone. Please see figure~\ref{fig:tweetInteraction}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=5cm]{tweetInteractionImage}
+    \caption{Interactive pop-up box}
+    \label{fig:tweetInteraction}
+\end{figure}
+
+The data inside the box would take up about two thirds of the box, leaving one third of the space for the keyboard. To close the box, the user could either tap outside of the box, or flick it up or down. Flicking up or down would have the box fly out of view either towards the top, or bottom of the screen, depending on the flick direction, and the fuzzy effect would dissipate. This is so the user feels like he is manipulating something in real life, if they throw a ball in a direction, the ball would of course move in the direction it was thrown.
+
+The content of the box would look essentially identical to the tweet app's retweet button. Please see figure~\ref{fig:TweetInteractionBoxAppearance}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=7cm]{retweetBox}
+    \caption{Appearance of the tweet/retweet/direct message box}
+    \label{fig:TweetInteractionBoxAppearance}
+\end{figure}
+
+Tweeting and retweeting would look the same, but sending a direct message would just change the "Tweet" button text to "Send".
+
+If a user has not logged in to their Twitter account, and are using the guest account, they would be prompted to login anytime they tried saving, deleting, or interacting with tweets.
 
 
 %overall design regarding flat, clean layout (similar to apple's constraints)
