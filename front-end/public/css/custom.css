@@ -1,19 +1,19 @@
 .navbar-inverse {
-	background-image: linear-gradient(to bottom,#ffffff 0,#ffffff 100%);
-    border-color:#E4ECF2;
+	background-image: linear-gradient(to bottom,#ffffff 0,#ffffff 100%); /* JD: 1, 8 */
+    border-color:#E4ECF2; /* JD: 9 */
     opacity: 0.95;
-    font-size:14px;
+    font-size:14px; /* JD: 9 */
 
 }
 
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a {
-    text-shadow: 0 0px 0 rgba(0,0,0,.25);
+    text-shadow: 0 0px 0 rgba(0,0,0,.25); /* JD: 8 */
 }
 	
 
 /*next two are for navbar links + hover*/
 .navbar-inverse .navbar-nav>li>a {
-	color:#838994;
+	color:#838994; /* JD: 1, 9 */
 	padding-top:28px;
 	padding-bottom:25px;
 	font-size: 15px;
@@ -25,6 +25,7 @@
     color: #333;
 }
 
+/* JD: I won't repeatedly tag 1, 8, 9 from here on, but not they still apply to a lot of lines below. */
 
 /*Next two are for navbarbrand + navbarbrand hover*/
 .navbar-inverse .navbar-brand {
@@ -153,7 +154,7 @@
     padding-bottom:15px;
     margin-bottom:10px;
 /*    background-color: rgba(184,184,184, 0.1);
-*/}
+*/} /* JD: 10 */
 
 #accordion {
     margin-bottom:450px;
@@ -172,7 +173,7 @@ a.nav-link:link
 {
    color: #0074D9;
    text-decoration: none;
-}
+} /* JD: 11 */
 a.nav-link:visited
 {
    color: #7FDBFF;
