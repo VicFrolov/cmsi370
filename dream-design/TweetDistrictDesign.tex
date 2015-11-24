@@ -80,8 +80,9 @@ One final feature, which again would be to streamline searching, would be predef
 
 
 
+\subsubsection{Twitter's API Get/Searches Limitations}
 
-%limitations of the API
+As excellent as Twitter's API is, it has some limitations from Tweet District's perspective. They have the ability to ignore an ID's tweets, but, the ID must be known beforehand. Unfortunately, Twitter does not have the ability to cap or ignore users that have posted more than "x" tweets on a specific topic. This is a problem because, Twitter allows up to 100 tweets to be returned, and if there is a user spamming a certain topic, there is no clean way to ignore their tweets. One way would be to simply keep track of unique user ID's, and once there is repetition, to not append that tweet to the body, but of course, this would cause less than 100 tweets to be displayed. So if a user posted 60 times, and there was a total of 100 tweets, only 40 tweets would be displayed. A workaround would be to make an initial call, track the amount of unique ID's, and if a user, for example, has tweeted more than 5 or 10 times on a topic, to then do a second search, and ignore specifically his username in that search, for a more unique return.
 
 
 \subsection{Map}
@@ -98,4 +99,6 @@ Thirdly frustration was how to navigate between the map that had markers for all
 % when talking about the main page, mention how when you were out it has to be easily accessible and searchable without any touch issues of scrolling (ie the map issue you currently have that takes up the full screen)
 
 
+
+%overall design regarding flat, clean layout (similar to apple's constraints)
 \end{document}
