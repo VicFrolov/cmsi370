@@ -1,3 +1,0 @@
-$(function () {
-     $("#drawing-area").boxes();
-});
