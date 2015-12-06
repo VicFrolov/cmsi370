@@ -13,6 +13,7 @@
         // i can assign a variable to this animation frame of the window stuff we did in class
             if (touch.target.movingBox) {
                 // Reposition the object.
+
                 touch.target.movingBox.offset({
                     left: touch.pageX - touch.target.deltaX,
                     top: touch.pageY - touch.target.deltaY
@@ -86,33 +87,64 @@
             .find("div.box").each(function (index, element) {
                 element.addEventListener("touchstart", startMove, false);
                 element.addEventListener("touchend", unhighlight, false);
+                element.velocity = { x: 0, y: 0};
+                //for accceleration you will have to mess around with the Z
+                //
+                //
+                //
+                element.acceleration = {x:0, y:0};
             });
     };
 
     var lastTimeStamp = 0;
-    var updateBoxes = function (timestamp) {
+    var FRAME_RATE = 60;
+    var MS_BETWEEN_FRAMES = 1000 / FRAME_RATE;
+    var updateBoxPositions = function (timestamp) {
+        var timePassed = timestamp - lastTimeStamp;
+        if (timePassed > MS_BETWEEN_FRAMES) {
+            $("div.box").each(function (index, element) {
+                var offset = $(element).offset();
+                offset.left += element.velocity.x * timePassed;
+                offset.top += element.velocity.y * timePassed;
 
-        $("#timestamp").text(timestamp);
+                element.velocity.x += element.acceleration.x * timePassed;
+                element.velocity.y += element.acceleration.y * timePassed;
+                $(element).offset(offset);
+            
+            });
+            
+            lastTimeStamp = timestamp;
+        }
 
-        //Move the boxes....on their own.
-        $("div.box").each(function (index) {
-            var $box = $(this);
-            var offset = $box.offset();
+        window.requestAnimationFrame(updateBoxPositions);
 
-            var distance = 1.0 * (timestamp - lastTimeStamp) / 10;
-            offset.top += distance;
-
-            $box.offset(offset);
-        
-        });
-
-        lastTimeStamp = timestamp;
-        window.requestAnimationFrame(updateBoxes);
     };
 
 
     $.fn.boxesTouch = function () {
+        var element = $("#drawing-area");
+        var elementOffset = element.offset();
+
         setDrawingArea(this);
-        window.requestAnimationFrame(updateBoxes);
+        window.requestAnimationFrame(updateBoxPositions);
+        
+        window.addEventListener('devicemotion', function(event) {
+            $("#console").text("y" + event.accelerationIncludingGravity.y + 
+                "x" + event.accelerationIncludingGravity.x +
+                "z" + event.accelerationIncludingGravity.z  );
+                //the flick is setting the velocity depending on where the finger is going
+
+            $("div.box").each(function (index, element) {
+                element.acceleration.x = event.accelerationIncludingGravity.x /50000;
+                element.acceleration.y = -event.accelerationIncludingGravity.y / 50000;
+            });
+        });
     };
 }(jQuery));
+
+
+
+
+
+
+
