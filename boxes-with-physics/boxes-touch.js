@@ -99,42 +99,40 @@
     var lastTimeStamp = 0;
     var FRAME_RATE = 60;
     var MS_BETWEEN_FRAMES = 1000 / FRAME_RATE;
+
     var updateBoxPositions = function (timestamp) {
         var timePassed = timestamp - lastTimeStamp;
         if (timePassed > MS_BETWEEN_FRAMES) {
             $("div.box").each(function (index, element) {
                 var offset = $(element).offset();
-                var ContainerBox = document.getElementById("drawing-area");
+                var offset = $(element).offset();                
 
-                $("#console").text(offset.top - ContainerBox.offsetTop);
-
-                var offset = $(element).offset();
-
-                
-                    offset.left += element.velocity.x * timePassed;
-
-
-                // element.velocity.x += element.acceleration.x * timePassed;
-                
-            if (offset.top <= ContainerBox.offsetTop) {
-                    offset.top += 100;
-                    // element.velocity.y += element.acceleration.y * element.acceleration.z * timePassed;
-
-            } else {
+                if (boxWithinWindow()) {
                     offset.top += element.velocity.y * timePassed
+                    offset.left += element.velocity.x * timePassed;
                     element.velocity.y += element.acceleration.y *  element.acceleration.z * timePassed;
-            }
-            
+                    element.velocity.x += element.acceleration.x * element.acceleration.z * timePassed;
+                }
 
                 $(element).offset(offset);
-            });
-            
+            });            
             lastTimeStamp = timestamp;
         }
-
         window.requestAnimationFrame(updateBoxPositions);
-
     };
+
+    var boxWithinWindow = function () {
+        var success = true;
+        $("div.box").each( function (index, element) {
+            var offset = $(element).offset();
+            var ContainerBox = document.getElementById("drawing-area");
+            
+            if (offset.left <= ContainerBox.offsetLeft || offset.top <= ContainerBox.offsetTop) {
+                success = false;
+            } 
+        });
+        return success;
+    }
 
 
 
