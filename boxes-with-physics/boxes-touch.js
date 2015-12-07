@@ -98,19 +98,24 @@
 
     var lastTimeStamp = 0;
     var FRAME_RATE = 60;
-    var MS_BETWEEN_FRAMES = 1000 / FRAME_RATE;
+    var MS_BETWEEN_FRAMES = 100 / FRAME_RATE;
 
     var updateBoxPositions = function (timestamp) {
         var timePassed = timestamp - lastTimeStamp;
         if (timePassed > MS_BETWEEN_FRAMES) {
             $("div.box").each(function (index, element) {
-                var offset = $(element).offset();      
-
+                var offset = $(element).offset();   
+                $("#console").text("velocity " + element.velocity.y);
                 if (boxWithinWindow(element, offset)) {
                     offset.top += element.velocity.y * timePassed
                     offset.left += element.velocity.x * timePassed;
-                    element.velocity.y += element.acceleration.y *  element.acceleration.z * timePassed;
-                    element.velocity.x += element.acceleration.x * element.acceleration.z * timePassed;
+                    element.velocity.y += element.acceleration.y * timePassed;
+                    element.velocity.x += element.acceleration.x  * timePassed;
+                } else {
+                        offset.top -= element.velocity.y * timePassed
+                        offset.left -= element.velocity.x * timePassed;
+                        element.velocity.y = - element.velocity.y /2;
+                        element.velocity.x = -element.velocity.x /2;
                 }
 
                 $(element).offset(offset);
@@ -159,8 +164,8 @@
                 //the flick is setting the velocity depending on where the finger is going
 
             $("div.box").each(function (index, element) {
-                element.acceleration.x = event.accelerationIncludingGravity.x  / 90000;
-                element.acceleration.y = -event.accelerationIncludingGravity.y / 90000;
+                element.acceleration.x = event.accelerationIncludingGravity.x  / 10000;
+                element.acceleration.y = -event.accelerationIncludingGravity.y / 10000;
                 element.acceleration.z = -event.accelerationIncludingGravity.z;
 
             });
