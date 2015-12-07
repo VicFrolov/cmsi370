@@ -104,10 +104,9 @@
         var timePassed = timestamp - lastTimeStamp;
         if (timePassed > MS_BETWEEN_FRAMES) {
             $("div.box").each(function (index, element) {
-                var offset = $(element).offset();
-                var offset = $(element).offset();                
+                var offset = $(element).offset();      
 
-                if (boxWithinWindow()) {
+                if (boxWithinWindow(element, offset)) {
                     offset.top += element.velocity.y * timePassed
                     offset.left += element.velocity.x * timePassed;
                     element.velocity.y += element.acceleration.y *  element.acceleration.z * timePassed;
@@ -121,18 +120,28 @@
         window.requestAnimationFrame(updateBoxPositions);
     };
 
-    var boxWithinWindow = function () {
-        var success = true;
-        $("div.box").each( function (index, element) {
-            var offset = $(element).offset();
-            var ContainerBox = document.getElementById("drawing-area");
+
+    var boxWithinWindow = function (box, offset) {
+        var boxWidth = $(box).width();
+        var boxHeight = $(box).height();
+        var offsetLeft = offset.left;
+        var offsetTop = offset.top;
+        var height = $("#drawing-area").height();
+        var width = $("#drawing-area").width();
+        var offSetBorders = $("#drawing-area").offset();        
+        var offSetBorders = $("#drawing-area").offset();        
+        var BorderTop = offSetBorders.top;
+        var BorderLeft = offSetBorders.left;
+        var BorderBottom = height + BorderTop;
+        var BorderRight = width + BorderLeft;
             
-            if (offset.left <= ContainerBox.offsetLeft || offset.top <= ContainerBox.offsetTop) {
-                success = false;
-            } 
-        });
-        return success;
-    }
+            if (offsetLeft <= BorderLeft || (offsetLeft + boxWidth) >= BorderRight) {
+                return false;
+            } else if (offsetTop <= BorderTop || (offsetTop + boxHeight) >= BorderBottom) {
+                return false;
+            }
+        return true;
+    }    
 
 
 
