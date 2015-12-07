@@ -12,6 +12,7 @@
         //^very good place to install code that performs
         // i can assign a variable to this animation frame of the window stuff we did in class
             if (touch.target.movingBox) {
+
                 // Reposition the object.
 
                 touch.target.movingBox.offset({
@@ -76,7 +77,6 @@
         // Set up any pre-existing box elements for touch behavior.
         jQueryElements
             .addClass("drawing-area")
-            
             // Event handler setup must be low-level because jQuery
             // doesn't relay touch-specific event properties.
             .each(function (index, element) {
@@ -87,12 +87,12 @@
             .find("div.box").each(function (index, element) {
                 element.addEventListener("touchstart", startMove, false);
                 element.addEventListener("touchend", unhighlight, false);
-                element.velocity = { x: 0, y: 0};
+                element.velocity = {x: 0, y: 0};
                 //for accceleration you will have to mess around with the Z
                 //
                 //
                 //
-                element.acceleration = {x:0, y:0};
+                element.acceleration = {x:0, y:0, z:0};
             });
     };
 
@@ -104,13 +104,29 @@
         if (timePassed > MS_BETWEEN_FRAMES) {
             $("div.box").each(function (index, element) {
                 var offset = $(element).offset();
-                offset.left += element.velocity.x * timePassed;
-                offset.top += element.velocity.y * timePassed;
+                var ContainerBox = document.getElementById("drawing-area");
 
-                element.velocity.x += element.acceleration.x * timePassed;
-                element.velocity.y += element.acceleration.y * timePassed;
-                $(element).offset(offset);
+                $("#console").text(offset.top - ContainerBox.offsetTop);
+
+                var offset = $(element).offset();
+
+                
+                    offset.left += element.velocity.x * timePassed;
+
+
+                // element.velocity.x += element.acceleration.x * timePassed;
+                
+            if (offset.top <= ContainerBox.offsetTop) {
+                    offset.top += 100;
+                    // element.velocity.y += element.acceleration.y * element.acceleration.z * timePassed;
+
+            } else {
+                    offset.top += element.velocity.y * timePassed
+                    element.velocity.y += element.acceleration.y *  element.acceleration.z * timePassed;
+            }
             
+
+                $(element).offset(offset);
             });
             
             lastTimeStamp = timestamp;
@@ -121,6 +137,7 @@
     };
 
 
+
     $.fn.boxesTouch = function () {
         var element = $("#drawing-area");
         var elementOffset = element.offset();
@@ -129,14 +146,16 @@
         window.requestAnimationFrame(updateBoxPositions);
         
         window.addEventListener('devicemotion', function(event) {
-            $("#console").text("y" + event.accelerationIncludingGravity.y + 
-                "x" + event.accelerationIncludingGravity.x +
-                "z" + event.accelerationIncludingGravity.z  );
+            // $("#console").text("y" + event.accelerationIncludingGravity.y + 
+            //     "x" + event.accelerationIncludingGravity.x +
+            //     "z" + event.accelerationIncludingGravity.z  );
                 //the flick is setting the velocity depending on where the finger is going
 
             $("div.box").each(function (index, element) {
-                element.acceleration.x = event.accelerationIncludingGravity.x /50000;
-                element.acceleration.y = -event.accelerationIncludingGravity.y / 50000;
+                element.acceleration.x = event.accelerationIncludingGravity.x  / 90000;
+                element.acceleration.y = -event.accelerationIncludingGravity.y / 90000;
+                element.acceleration.z = -event.accelerationIncludingGravity.z;
+
             });
         });
     };
