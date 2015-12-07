@@ -106,18 +106,24 @@
             $("div.box").each(function (index, element) {
                 var offset = $(element).offset();   
                 $("#console").text("velocity " + element.velocity.y);
-                if (boxWithinWindow(element, offset)) {
+                if (boxWithinWindow(element, offset) === 0) {
                     offset.top += element.velocity.y * timePassed
                     offset.left += element.velocity.x * timePassed;
                     element.velocity.y += element.acceleration.y * timePassed;
                     element.velocity.x += element.acceleration.x  * timePassed;
                 } else {
+                    if (boxWithinWindow(element, offset) === 2) {
                         offset.top -= element.velocity.y * timePassed
-                        offset.left -= element.velocity.x * timePassed;
                         element.velocity.y = - element.velocity.y /2;
-                        element.velocity.x = -element.velocity.x /2;
+                        offset.left += element.velocity.x * timePassed;
+                        element.velocity.x += element.acceleration.x  * timePassed;
+                    } else {
+                        offset.left -= element.velocity.x * timePassed;
+                        element.velocity.x = - element.velocity.x /2;
+                        offset.top += element.velocity.y * timePassed
+                        element.velocity.y += element.acceleration.y * timePassed;
+                    }
                 }
-
                 $(element).offset(offset);
             });            
             lastTimeStamp = timestamp;
@@ -141,11 +147,11 @@
         var BorderRight = width + BorderLeft;
             
             if (offsetLeft <= BorderLeft || (offsetLeft + boxWidth) >= BorderRight) {
-                return false;
+                return 1;
             } else if (offsetTop <= BorderTop || (offsetTop + boxHeight) >= BorderBottom) {
-                return false;
+                return 2;
             }
-        return true;
+        return 0;
     }    
 
 
