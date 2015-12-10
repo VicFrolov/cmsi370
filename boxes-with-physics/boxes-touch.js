@@ -11,9 +11,9 @@
         // request animation frame function -> function that browser calls when it needs to refresh the screen
         //^very good place to install code that performs
         // i can assign a variable to this animation frame of the window stuff we did in class
-            if (touch.target.movingBox) {
+            if (touch.target.movingBox) {                // Reposition the object.
 
-                // Reposition the object.
+
 
                 touch.target.movingBox.offset({
                     left: touch.pageX - touch.target.deltaX,
@@ -97,63 +97,57 @@
     };
 
     var lastTimeStamp = 0;
-    var FRAME_RATE = 60;
-    var MS_BETWEEN_FRAMES = 100 / FRAME_RATE;
+    var FRAME_RATE = 120;
+    var MS_BETWEEN_FRAMES = 1000 / FRAME_RATE;
+
+    var BORDER_HEIGHT = $("#drawing-area").height();
+    var BORDER_WIDTH = $("#drawing-area").width();
+    var OFFSET_BORDERS = $("#drawing-area").offset();                
+    var BORDER_TOP = OFFSET_BORDERS.top;
+    var BORDER_LEFT = OFFSET_BORDERS.left;
+    var BORDER_BOTTOM = BORDER_HEIGHT + BORDER_TOP;
+    var BORDER_RIGHT = BORDER_WIDTH + BORDER_LEFT;
 
     var updateBoxPositions = function (timestamp) {
         var timePassed = timestamp - lastTimeStamp;
         if (timePassed > MS_BETWEEN_FRAMES) {
             $("div.box").each(function (index, element) {
                 var offset = $(element).offset();   
-                $("#console").text("velocity " + element.velocity.y);
-                if (boxWithinWindow(element, offset) === 0) {
-                    offset.top += element.velocity.y * timePassed
-                    offset.left += element.velocity.x * timePassed;
-                    element.velocity.y += element.acceleration.y * timePassed;
-                    element.velocity.x += element.acceleration.x  * timePassed;
-                } else {
-                    if (boxWithinWindow(element, offset) === 2) {
-                        offset.top -= element.velocity.y * timePassed
-                        element.velocity.y = - element.velocity.y /2;
-                        offset.left += element.velocity.x * timePassed;
-                        element.velocity.x += element.acceleration.x  * timePassed;
-                    } else {
-                        offset.left -= element.velocity.x * timePassed;
-                        element.velocity.x = - element.velocity.x /2;
-                        offset.top += element.velocity.y * timePassed
-                        element.velocity.y += element.acceleration.y * timePassed;
+                var boxWidth = $(element).width();
+                var boxHeight = $(element).height();
+                var boxLeft = offset.left;
+                var boxTop = offset.top;
+                var boxBottom = boxTop + boxHeight;
+                var boxRight = boxLeft + boxWidth; 
+
+                if (boxLeft < BORDER_LEFT || boxRight > BORDER_RIGHT) {
+                    offset.left = boxLeft < BORDER_LEFT ? BORDER_LEFT : BORDER_RIGHT - boxWidth;
+                    element.velocity.x = - element.velocity.x /2;
+                    if (Math.abs(element.velocity.x) < 0.1) {
+                        element.velocity.x = 0;
+                    }
+                } 
+
+                if (boxTop < BORDER_TOP || boxBottom > BORDER_BOTTOM) {
+                    offset.top = boxTop < BORDER_TOP ? BORDER_TOP : BORDER_BOTTOM - boxHeight;
+                    element.velocity.y =  - element.velocity.y / 2 ;
+                    if (Math.abs(element.velocity.y) < 0.1) {
+                        element.velocity.y = 0;
                     }
                 }
+
+                // box does not collide with any barrier
+                offset.top += element.velocity.y * timePassed;
+                offset.left += element.velocity.x * timePassed;                        
+                element.velocity.y += (element.acceleration.y) * timePassed;
+                element.velocity.x += (element.acceleration.x)  * timePassed;
+
                 $(element).offset(offset);
             });            
             lastTimeStamp = timestamp;
         }
         window.requestAnimationFrame(updateBoxPositions);
     };
-
-
-    var boxWithinWindow = function (box, offset) {
-        var boxWidth = $(box).width();
-        var boxHeight = $(box).height();
-        var offsetLeft = offset.left;
-        var offsetTop = offset.top;
-        var height = $("#drawing-area").height();
-        var width = $("#drawing-area").width();
-        var offSetBorders = $("#drawing-area").offset();        
-        var offSetBorders = $("#drawing-area").offset();        
-        var BorderTop = offSetBorders.top;
-        var BorderLeft = offSetBorders.left;
-        var BorderBottom = height + BorderTop;
-        var BorderRight = width + BorderLeft;
-            
-            if (offsetLeft <= BorderLeft || (offsetLeft + boxWidth) >= BorderRight) {
-                return 1;
-            } else if (offsetTop <= BorderTop || (offsetTop + boxHeight) >= BorderBottom) {
-                return 2;
-            }
-        return 0;
-    }    
-
 
 
     $.fn.boxesTouch = function () {
@@ -172,7 +166,7 @@
             $("div.box").each(function (index, element) {
                 element.acceleration.x = event.accelerationIncludingGravity.x  / 10000;
                 element.acceleration.y = -event.accelerationIncludingGravity.y / 10000;
-                element.acceleration.z = -event.accelerationIncludingGravity.z;
+                element.acceleration.z = event.accelerationIncludingGravity.z / 10000;
 
             });
         });

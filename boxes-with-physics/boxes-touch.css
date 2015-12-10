@@ -2,7 +2,7 @@
 .drawing-area {
     position: relative;
     user-select: none;
-    background-color: grey;
+    background-color: silver;
 }
 
 /* Box properties and their variants. */
