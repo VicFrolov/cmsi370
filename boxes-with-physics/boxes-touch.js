@@ -5,11 +5,6 @@
     var trackDrag = function (event) {
         $.each(event.changedTouches, function (index, touch) {
             // Don't bother if we aren't tracking anything.
-        // distance from the last time where the finger was to where it is now, determines how far the box will flick
-        // Need code to happen even when the user isn't doing anything
-        // request animation frame function -> function that browser calls when it needs to refresh the screen
-        //^very good place to install code that performs
-        // i can assign a variable to this animation frame of the window stuff we did in class
             if (touch.target.movingBox) {         
                 // Reposition the object.
                 touch.target.movingBox.offset({
@@ -55,6 +50,7 @@
         $.each(event.changedTouches, function (index, touch) {
             // Highlight the element.
 
+            $(touch.target).css("background-color", "red");
             $(touch.target).addClass("box-highlight");
 
             // Take note of the box's current (global) location.
@@ -109,12 +105,13 @@
     var BORDER_LEFT = OFFSET_BORDERS.left;
     var BORDER_BOTTOM = BORDER_HEIGHT + BORDER_TOP;
     var BORDER_RIGHT = BORDER_WIDTH + BORDER_LEFT;
+    var bgSwitcher = true;
+
 
     var updateBoxPositions = function (timestamp) {
         var timePassed = timestamp - lastTimeStamp;
         if (timePassed > MS_BETWEEN_FRAMES) {
             $("div.box").each(function (index, element) {
-                $("#console").text(element.movingBox + " " + element.acceleration.x);
                 var offset = $(element).offset();   
                 var boxWidth = $(element).width();
                 var boxHeight = $(element).height();
@@ -123,15 +120,17 @@
                 var boxBottom = boxTop + boxHeight;
                 var boxRight = boxLeft + boxWidth;
 
-                console.log($(element));
-
                 if (element.movingBox === null || element.movingBox === undefined) {
                     if (boxLeft < BORDER_LEFT || boxRight > BORDER_RIGHT) {
                         offset.left = boxLeft < BORDER_LEFT ? BORDER_LEFT : BORDER_RIGHT - boxWidth;
                         element.velocity.x = - element.velocity.x /2;
+                        
                         if (Math.abs(element.velocity.x) < 0.1) {
                             element.velocity.x = 0;
                         }
+                        
+                        changeBackgroundColor(this, bgSwitcher);
+                        bgSwitcher = !bgSwitcher;                        
                     } 
 
                     if (boxTop < BORDER_TOP || boxBottom > BORDER_BOTTOM) {
@@ -140,6 +139,9 @@
                         if (Math.abs(element.velocity.y) < 0.1) {
                             element.velocity.y = 0;
                         }
+
+                        changeBackgroundColor(this, bgSwitcher);
+                        bgSwitcher = !bgSwitcher;                         
                     }
 
                     offset.top += element.velocity.y * timePassed;
@@ -154,6 +156,16 @@
         }
         window.requestAnimationFrame(updateBoxPositions);
     };
+
+
+    var changeBackgroundColor = function (box, colorTracker) {
+        if (colorTracker) {
+            $(box).css("background-color", "yellow");
+        } else {
+            $(box).css("background-color", "orange");
+
+        }
+    }
 
 
     $.fn.boxesTouch = function () {
@@ -171,10 +183,3 @@
         });
     };
 }(jQuery));
-
-
-
-
-
-
-
