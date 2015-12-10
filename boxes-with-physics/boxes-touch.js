@@ -16,9 +16,14 @@
                     left: touch.pageX - touch.target.deltaX,
                     top: touch.pageY - touch.target.deltaY
                 });
+
+                touch.target.velocity.x = (touch.pageX - touch.target.lastX) / 10;
+                touch.target.velocity.y = (touch.pageY - touch.target.lastY) / 10;
+                touch.target.lastX = touch.pageX;
+                touch.target.lastY = touch.pageY;
             }
         });
-
+    
         // Don't do any touch scrolling.
         event.preventDefault();
     };
@@ -59,6 +64,9 @@
             // Set the drawing area's state to indicate that it is
             // in the middle of a move.
             touch.target.movingBox = jThis;
+
+            touch.target.lastX = touch.pageX;
+            touch.target.lastY = touch.pageY;
             touch.target.deltaX = touch.pageX - startOffset.left;
             touch.target.deltaY = touch.pageY - startOffset.top;
         });
@@ -113,7 +121,9 @@
                 var boxLeft = offset.left;
                 var boxTop = offset.top;
                 var boxBottom = boxTop + boxHeight;
-                var boxRight = boxLeft + boxWidth; 
+                var boxRight = boxLeft + boxWidth;
+
+                console.log($(element));
 
                 if (element.movingBox === null || element.movingBox === undefined) {
                     if (boxLeft < BORDER_LEFT || boxRight > BORDER_RIGHT) {
@@ -138,7 +148,7 @@
                     element.velocity.x += (element.acceleration.x)  * timePassed;
                     $(element).offset(offset);
                 }
-                
+
             });            
             lastTimeStamp = timestamp;
         }
