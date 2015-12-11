@@ -44,6 +44,7 @@
     }            
 
     $.fn.intelliswipe = function () {
+
         var children = $(this).children();
         children.each(function (index, element) {
             $(element).width($("#list-container").width() + 300);
@@ -54,5 +55,6 @@
             element.addEventListener("touchend", endSlide, false);
 
         });
+        $('#list-container').scrollLeft($("#left-button").width() +1);        
     };
 }(jQuery));

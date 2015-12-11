@@ -1,6 +1,6 @@
 #list-container {
     position: relative;
-    overflow-x: hidden;
+    overflow-x: scroll;
 }
 
 @media screen and (max-device-width: 480px) {
@@ -15,11 +15,13 @@ float and height must not be altered.*/
     height: 100%;
     width:150px;
     float:right;
+    margin-left:5px;
 }
 
 #left-button {
     height: 100%;
     width:150px;
+    margin-right:5px;
     float:left;
 }
 
@@ -30,10 +32,7 @@ ul {
     margin: 0px;
 }
 
-/*default height, can be altered.
-overflow is necessary due to floats*/
 li {
-    padding: 0px;
     overflow:hidden;
     height:150px;
 }
