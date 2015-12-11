@@ -1,0 +1,19 @@
+#item-container {
+    border: 1px solid black;
+    width: 600px;
+    height: 512px;
+    background-color: #F0F8FF;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin:0px;
+}
+
+li {
+    border: solid 1px;
+    border-color: black;
+    background-color: white;
+    margin-bottom: 20px;
+}
