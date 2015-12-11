@@ -1,7 +1,7 @@
 (function ($) {
 
-    var deleteList = function (element) {
-        element.remove();
+    var deleteLi = function (element) {
+        $(element).remove();
     }
 
     var trackSlide = function (event) {
@@ -37,10 +37,16 @@
 
     var appendRightButton = function(element) {
         $(element).prepend("<div id='right-button'> </div> ");
+        $(element).click(function () {
+            deleteLi(this);
+        });         
     }
 
     var appendLeftButton = function(element) {
         $(element).prepend("<div id='left-button'> </div> ");
+        $(element).click(function () {
+            deleteLi(this);
+        });        
     }            
 
     $.fn.intelliswipe = function () {
@@ -49,12 +55,12 @@
         children.each(function (index, element) {
             $(element).width($("#list-container").width() + 300);
             appendRightButton(element);
-            appendLeftButton(element);
+            appendLeftButton(element);       
             element.addEventListener("touchstart", startMove, false);
             element.addEventListener("touchmove", trackSlide, false);
             element.addEventListener("touchend", endSlide, false);
 
         });
-        $('#list-container').scrollLeft($("#left-button").width() +1);        
+        $('#list-container').scrollLeft($("#left-button").width());   
     };
 }(jQuery));
