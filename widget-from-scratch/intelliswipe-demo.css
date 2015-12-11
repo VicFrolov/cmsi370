@@ -1,21 +1,26 @@
 #list-container {
     border: 1px solid black;
-    width: 800px;
-    height: 900px;
+    width: 400px;
+    height: 500px;
     background-color: #F0F8FF;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0px;
-
+#right-button {
+    background-color: red;
+    width: 100px;
 }
 
+#left-button {
+    background-color: yellow;
+}
+
+
+
 li {
+    background-color: white;    
     border: solid 1px;
-    border-color: black;
-    background-color: white;
-    margin: 3px;    
-    margin-top: 20px;
-    padding:10px;
+    border-color: gray;
+    margin-top:10px;
+    margin-bottom:10px;
+
 }

@@ -1,6 +1,6 @@
 (function ($) {
 
-    var deleteTweet = function (element) {
+    var deleteList = function (element) {
         element.remove();
     }
 
@@ -29,16 +29,26 @@
 
             var jThis = $(touch.target),
                 startOffset = jThis.offset();
-            console.log(jThis);
             touch.target.movingBox = jThis;
             touch.target.deltaX = touch.pageX - startOffset.left;
         });
         event.stopPropagation();
-    }       
+    }
+
+    var appendRightButton = function(element) {
+        $(element).prepend("<div id='right-button'> </div> ");
+    }
+
+    var appendLeftButton = function(element) {
+        $(element).prepend("<div id='left-button'> </div> ");
+    }            
 
     $.fn.intelliswipe = function () {
         var children = $(this).children();
         children.each(function (index, element) {
+            $(element).width($("#list-container").width() + 300);
+            appendRightButton(element);
+            appendLeftButton(element);
             element.addEventListener("touchstart", startMove, false);
             element.addEventListener("touchmove", trackSlide, false);
             element.addEventListener("touchend", endSlide, false);

@@ -3,8 +3,37 @@
     overflow-x: hidden;
 }
 
-@media screen and (max-device-width: 480px){
-  body{
-    -webkit-text-size-adjust: none;
-  }
+@media screen and (max-device-width: 480px) {
+    body {
+        -webkit-text-size-adjust: none;
+    }
+}
+
+/* width is a default value, can be changed
+float and height must not be altered.*/
+#right-button {
+    height: 100%;
+    width:150px;
+    float:right;
+}
+
+#left-button {
+    height: 100%;
+    width:150px;
+    float:left;
+}
+
+
+ul {
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+}
+
+/*default height, can be altered.
+overflow is necessary due to floats*/
+li {
+    padding: 0px;
+    overflow:hidden;
+    height:150px;
 }
