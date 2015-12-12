@@ -93,6 +93,7 @@
         buttonSide.click(function () {
             deleteLi(listItem);
         });
+        $(".right-button").text("TAP TO DELETE");
     }
 
     var saveButton = function () {

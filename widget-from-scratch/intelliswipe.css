@@ -12,16 +12,14 @@
 
 .right-button {
     height: 100%;
-    width:153px;
-    float:right;
-    margin-left:5px;
+    width: 153px;
 }
 
 .left-button {
     height: 100%;
-    width:150px;
-    margin-right:5px;
-    float:left;
+    width: 150px;
+    margin-right: 5px;
+    float: left;
 }
 
 
@@ -32,6 +30,6 @@ ul {
 }
 
 li {
-    overflow:hidden;
-    height:150px;
+    overflow: hidden;
+    height: 150px;
 }
