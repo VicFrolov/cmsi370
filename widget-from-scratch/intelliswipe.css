@@ -1,6 +1,6 @@
 #list-container {
     position: relative;
-    overflow-x: scroll;
+    overflow-x: hidden;
 }
 
 @media screen and (max-device-width: 480px) {
@@ -10,14 +10,14 @@
 }
 
 
-#right-button {
+.right-button {
     height: 100%;
-    width:150px;
+    width:153px;
     float:right;
-    margin-right:5px;
+    margin-left:5px;
 }
 
-#left-button {
+.left-button {
     height: 100%;
     width:150px;
     margin-right:5px;

@@ -5,11 +5,11 @@
     background-color: #F0F8FF;
 }
 
-#right-button {
+.right-button {
     background-color: red;
 }
 
-#left-button {
+.left-button {
     background-color: yellow;
 }
 
