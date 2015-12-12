@@ -8,20 +8,12 @@
         $("#console").append(value);
     }
 
-    var bool = true;
     var trackSlide = function (event) {
-        console.log(event);
-
         $.each(event.changedTouches, function (index, touch) {
-            //console.log($(touch.target).parent()[0])
-
             var target = touch.target;
-            while(!$(target).is("li")) {
-                //if(bool)console.log("backtracking");
+            while (!$(target).is("li")) {
                 target = $(target).parent()[0]
             }
-            console.log(target.movingBox);
-            bool = false;  
             if (target.movingBox) {
                 target.movingBox.offset({
                     left: touch.pageX - target.deltaX
@@ -36,15 +28,14 @@
     var endSlide = function (event) {
         $.each(event.changedTouches, function (index, touch) {
             var target = touch.target;
-            while(!$(target).is("li")) {
+            while (!$(target).is("li")) {
                 target = $(target).parent()[0]
-            }            
+            }
             var startingPos = target.startingPosition;
             var lastPos = target.lastOffSetX;
             var LEFT_BUTTON_WIDTH = $(".left-button").width();
             var RIGHT_BUTTON_WIDTH = $(".left-button").width();
             var smallDrag = Math.abs((lastPos - startingPos)) < 100
-
             if (target.movingBox && $(target).is("li")) {
                 if (smallDrag) {
                     target.movingBox.offset({
@@ -55,7 +46,7 @@
                         target.movingBox.offset({
                             left: (target.startingPosition + LEFT_BUTTON_WIDTH)
                         });   
-                    } else {
+                    } else if (startingPos > lastPos) {
                         target.movingBox.offset({
                             left: (target.startingPosition - RIGHT_BUTTON_WIDTH)
                         }); 
@@ -67,24 +58,18 @@
     } 
 
     var startMove = function (event) {
-
         $.each(event.changedTouches, function (index, touch) {
             var target = touch.target;
-            while(!$(target).is("li")) {
-                if(bool)console.log("backtracking");
+            while (!$(target).is("li")) {
                 target = $(target).parent()[0]
             }
-            if($(target).is("li")) {
-            
             var jThis = $(target),
                 startOffset = jThis.offset();
             
             target.movingBox = jThis;
             target.startingPosition = startOffset.left;
             target.deltaX = touch.pageX - startOffset.left;
-}
         });
-        
         event.stopPropagation();
     }
 
