@@ -25,6 +25,7 @@
         event.preventDefault();
     }
 
+    
     var endSlide = function (event) {
         $.each(event.changedTouches, function (index, touch) {
             var target = touch.target;
@@ -36,20 +37,23 @@
             var LEFT_BUTTON_WIDTH = $(".left-button").width();
             var RIGHT_BUTTON_WIDTH = $(".left-button").width();
             var smallDrag = Math.abs((lastPos - startingPos)) < 100
-            if (target.movingBox && $(target).is("li")) {
+
+            if (target.movingBox) {
                 if (smallDrag) {
                     target.movingBox.offset({
-                        left: target.startingPosition
-                    });            
+                        left: startingPos
+                    }); 
                 } else {
                     if (startingPos < lastPos) {
                         target.movingBox.offset({
-                            left: (target.startingPosition + LEFT_BUTTON_WIDTH)
-                        });   
+                            left: (startingPos + LEFT_BUTTON_WIDTH)
+                        });
+                        target.stackedOut = true;
                     } else if (startingPos > lastPos) {
                         target.movingBox.offset({
-                            left: (target.startingPosition - RIGHT_BUTTON_WIDTH)
+                            left: (startingPos - RIGHT_BUTTON_WIDTH)
                         }); 
+                        target.stackedOut = true;
                     }
                 }   
                 target.movingBox = null;
@@ -58,6 +62,7 @@
     } 
 
     var startMove = function (event) {
+        offset = $("#list-container").offset();
         $.each(event.changedTouches, function (index, touch) {
             var target = touch.target;
             while (!$(target).is("li")) {
@@ -65,9 +70,10 @@
             }
             var jThis = $(target),
                 startOffset = jThis.offset();
-            
+
+            target.startingPosition = offset.left - $(".left-button").width();
             target.movingBox = jThis;
-            target.startingPosition = startOffset.left;
+            target.stackedOut = false;
             target.deltaX = touch.pageX - startOffset.left;
         });
         event.stopPropagation();
