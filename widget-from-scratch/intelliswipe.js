@@ -19,6 +19,7 @@
             if (target.movingBox) {
                 target.movingBox.offset({
                     left: touch.pageX - target.deltaX
+
                 });
                 target.lastOffSetX = touch.pageX - target.deltaX
             }
@@ -45,26 +46,24 @@
             var LEFT_BUTTON_WIDTH = $(".left-button").width();
             var RIGHT_BUTTON_WIDTH = $(".left-button").width();
             var smallDrag = Math.abs((lastPos - startingPos)) < 100
+            var leftPos = 0;
 
             if (target.movingBox) {
                 if (smallDrag) {
-                    target.movingBox.offset({
-                        left: startingPos
-                    }); 
+                    leftPos = startingPos;
                 } else {
                     if (startingPos < lastPos) {
-                        target.movingBox.offset({
-                            left: (startingPos + LEFT_BUTTON_WIDTH)
-                        });
+                        leftPos = startingPos + LEFT_BUTTON_WIDTH;
                     } else if (startingPos > lastPos) {
-                        target.movingBox.offset({
-                            left: (startingPos - RIGHT_BUTTON_WIDTH)
-                        }); 
+                        leftPos = startingPos - RIGHT_BUTTON_WIDTH;
                     }
                     target.stackedOut = true;
-                }   
-                target.movingBox = null;
+                }
             }
+            target.movingBox.offset({
+                left: leftPos
+            });            
+            target.movingBox = null;
         });
     } 
 
