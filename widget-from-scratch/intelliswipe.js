@@ -14,12 +14,11 @@
         $.each(event.changedTouches, function (index, touch) {
             var target = touch.target;
             while (!$(target).is("li")) {
-                target = $(target).parent()[0]
+                target = $(target).parent()[0];
             }
             if (target.movingBox) {
                 target.movingBox.offset({
                     left: touch.pageX - target.deltaX
-
                 });
                 target.lastOffSetX = touch.pageX - target.deltaX
             }
@@ -45,9 +44,8 @@
             var lastPos = target.lastOffSetX;
             var LEFT_BUTTON_WIDTH = $(".left-button").width();
             var RIGHT_BUTTON_WIDTH = $(".left-button").width();
-            var smallDrag = Math.abs((lastPos - startingPos)) < 100
+            var smallDrag = Math.abs((lastPos - startingPos)) < 100;
             var leftPos = 0;
-
             if (target.movingBox) {
                 if (smallDrag) {
                     leftPos = startingPos;
