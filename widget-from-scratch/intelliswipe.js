@@ -2,11 +2,11 @@
     var deleteLi = function (element) {
         $(element).remove();
     }
-    var highlight = function(element) {
+    var highlight = function (element) {
         $(element).css('background-color', 'yellow');
     }
 
-    var consolePrint = function(value) {
+    var consolePrint = function (value) {
         $("#console").append(value);
     }
 
@@ -26,6 +26,12 @@
         });
         event.preventDefault();
     }
+
+    var fafa = function () { 
+        target.movingBox.offset({
+            left: startingPos
+        }); 
+    }     
 
     
     var endSlide = function (event) {
@@ -50,13 +56,12 @@
                         target.movingBox.offset({
                             left: (startingPos + LEFT_BUTTON_WIDTH)
                         });
-                        target.stackedOut = true;
                     } else if (startingPos > lastPos) {
                         target.movingBox.offset({
                             left: (startingPos - RIGHT_BUTTON_WIDTH)
                         }); 
-                        target.stackedOut = true;
                     }
+                    target.stackedOut = true;
                 }   
                 target.movingBox = null;
             }
@@ -72,7 +77,6 @@
             }
             var jThis = $(target),
                 startOffset = jThis.offset();
-
             target.startingPosition = offset.left - $(".left-button").width();
             target.movingBox = jThis;
             target.stackedOut = false;
@@ -81,14 +85,14 @@
         event.stopPropagation();
     }
 
-    var appendRightButton = function(element) {
+    var appendRightButton = function (element) {
         var listItem = $(element);
         listItem.prepend("<div class='right-button'> </div> ");
         var rightButton = listItem.find(".right-button");  
         rightFunction(rightButton, listItem);              
     }
 
-    var appendLeftButton = function(element) {
+    var appendLeftButton = function (element) {
         var listItem = $(element);
         listItem.prepend("<div class='left-button'> </div> ");
         var leftButton = listItem.find(".left-button");  
@@ -99,7 +103,7 @@
     var rightFunction;
     var leftFunction;
 
-    var deleteButton = function(buttonSide, listItem) {
+    var deleteButton = function (buttonSide, listItem) {
         buttonSide.click(function () {
             deleteLi(listItem);
         });
@@ -113,7 +117,7 @@
         $(".left-button").text("Highlight Me(forever)");
     }
 
-    var saveButton = function() {
+    var saveButton = function () {
         //To be implemented
     }
 
@@ -138,7 +142,6 @@
             element.addEventListener("touchend", endSlide, false);
 
         });
-
         $('#list-container').scrollLeft($(".left-button").width());   
     };
 }(jQuery));
