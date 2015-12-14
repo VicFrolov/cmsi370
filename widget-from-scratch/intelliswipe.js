@@ -23,7 +23,6 @@
                 target.lastOffSetX = touch.pageX - target.deltaX
             }
         });
-        event.preventDefault();
     }
     
     var endSlide = function (event) {
@@ -37,7 +36,7 @@
             var LEFT_BUTTON_WIDTH = $(".left-button").width();
             var RIGHT_BUTTON_WIDTH = $(".left-button").width();
             var smallDrag = Math.abs((lastPos - startingPos)) < 100;
-            var leftPos = target.startingPosition;
+            var leftPos = lastPos;
 
             if (target.movingBox) {
                 if (smallDrag) {

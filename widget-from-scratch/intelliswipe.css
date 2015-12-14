@@ -1,6 +1,7 @@
 #list-container {
     position: relative;
     overflow-x: hidden;
+
 }
 
 @media screen and (max-device-width: 480px) {
@@ -8,7 +9,6 @@
         -webkit-text-size-adjust: none;
     }
 }
-
 
 .right-button {
     height: 100%;
