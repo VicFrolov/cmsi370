@@ -22,17 +22,9 @@
                 });
                 target.lastOffSetX = touch.pageX - target.deltaX
             }
-            
         });
         event.preventDefault();
     }
-
-    var fafa = function () { 
-        target.movingBox.offset({
-            left: startingPos
-        }); 
-    }     
-
     
     var endSlide = function (event) {
         $.each(event.changedTouches, function (index, touch) {
@@ -45,7 +37,8 @@
             var LEFT_BUTTON_WIDTH = $(".left-button").width();
             var RIGHT_BUTTON_WIDTH = $(".left-button").width();
             var smallDrag = Math.abs((lastPos - startingPos)) < 100;
-            var leftPos = 0;
+            var leftPos = target.startingPosition;
+
             if (target.movingBox) {
                 if (smallDrag) {
                     leftPos = startingPos;
