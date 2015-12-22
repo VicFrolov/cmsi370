@@ -3,7 +3,7 @@
         $(element).remove();
     }
     var highlight = function (element) {
-        $(element).css('background-color', 'yellow');
+        $(element).css('background-color', 'yellow'); // JD: 7
     }
 
     var consolePrint = function (value) {
@@ -95,16 +95,16 @@
 
     var deleteButton = function (buttonSide, listItem) {
         buttonSide.click(function () {
-            deleteLi(listItem);
+            deleteLi(listItem); // JD: 5
         });
-        $(".right-button").text("TAP TO DELETE");
+        $(".right-button").text("TAP TO DELETE"); // JD: 8
     }
 
     var highlightButton = function (buttonSide, listItem) {
         buttonSide.click(function () {
-            highlight(listItem);
+            highlight(listItem); // JD: 5
         });
-        $(".left-button").text("Highlight Me(forever)");
+        $(".left-button").text("Highlight Me(forever)"); // JD: 8
     }
 
     var saveButton = function () {
@@ -123,14 +123,14 @@
         var ulItems = $(this).children();
 
         ulItems.each(function (index, element) {
-            $(element).width($("#list-container").width() + 300);
+            $(element).width($("#list-container").width() + 300); // JD: 2
             appendRightButton(element);
             appendLeftButton(element);       
-            element.addEventListener("touchstart", startMove, false);
+            element.addEventListener("touchstart", startMove, false); // JD: 3
             element.addEventListener("touchmove", trackSlide, false);
             element.addEventListener("touchend", endSlide, false);
 
         });
         $('#list-container').scrollLeft($(".left-button").width());   
-    };
+    }; // JD: 4
 }(jQuery));
