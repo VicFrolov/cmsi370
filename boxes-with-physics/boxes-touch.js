@@ -12,7 +12,7 @@
                     top: touch.pageY - touch.target.deltaY
                 });
 
-                touch.target.velocity.x = (touch.pageX - touch.target.lastX) / 10;
+                touch.target.velocity.x = (touch.pageX - touch.target.lastX) / 10; // JD: 2
                 touch.target.velocity.y = (touch.pageY - touch.target.lastY) / 10;
                 touch.target.lastX = touch.pageX;
                 touch.target.lastY = touch.pageY;
@@ -50,7 +50,7 @@
         $.each(event.changedTouches, function (index, touch) {
             // Highlight the element.
 
-            $(touch.target).css("background-color", "red");
+            $(touch.target).css("background-color", "red"); // JD: 3
             $(touch.target).addClass("box-highlight");
 
             // Take note of the box's current (global) location.
@@ -120,27 +120,27 @@
                 var boxBottom = boxTop + boxHeight;
                 var boxRight = boxLeft + boxWidth;
 
-                if (element.movingBox === null || element.movingBox === undefined) {
+                if (element.movingBox === null || element.movingBox === undefined) { // JD: 4
                     if (boxLeft < BORDER_LEFT || boxRight > BORDER_RIGHT) {
                         offset.left = boxLeft < BORDER_LEFT ? BORDER_LEFT : BORDER_RIGHT - boxWidth;
-                        element.velocity.x = - element.velocity.x /2;
+                        element.velocity.x = - element.velocity.x /2; // JD: 6
                         
                         if (Math.abs(element.velocity.x) < 0.1) {
                             element.velocity.x = 0;
                         }
                         
-                        changeBackgroundColor(this, bgSwitcher);
+                        changeBackgroundColor(this, bgSwitcher); // JD: 5
                         bgSwitcher = !bgSwitcher;                        
                     } 
 
                     if (boxTop < BORDER_TOP || boxBottom > BORDER_BOTTOM) {
                         offset.top = boxTop < BORDER_TOP ? BORDER_TOP : BORDER_BOTTOM - boxHeight;
-                        element.velocity.y =  - element.velocity.y / 2 ;
+                        element.velocity.y =  - element.velocity.y / 2 ; // JD: 6
                         if (Math.abs(element.velocity.y) < 0.1) {
                             element.velocity.y = 0;
                         }
 
-                        changeBackgroundColor(this, bgSwitcher);
+                        changeBackgroundColor(this, bgSwitcher); // JD: 5
                         bgSwitcher = !bgSwitcher;                         
                     }
 
@@ -158,7 +158,7 @@
     };
 
 
-    var changeBackgroundColor = function (box, colorTracker) {
+    var changeBackgroundColor = function (box, colorTracker) { // JD: 5, 7
         if (colorTracker) {
             $(box).css("background-color", "yellow");
         } else {
@@ -177,7 +177,7 @@
         
         window.addEventListener('devicemotion', function(event) {
             $("div.box").each(function (index, element) {
-                element.acceleration.x = event.accelerationIncludingGravity.x  / 10000;
+                element.acceleration.x = event.accelerationIncludingGravity.x  / 10000; // JD: 7
                 element.acceleration.y = -event.accelerationIncludingGravity.y / 10000;
             });
         });
