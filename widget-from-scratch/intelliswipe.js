@@ -4,12 +4,11 @@
     }
     var highlight = function (element) {
         if(element.locked) {
-            element.locked = false;
             $(element).css('background-color', 'white'); // JD: 7
         } else {
-            element.locked = true;
             $(element).css('background-color', 'yellow'); // JD: 7
         }
+        element.locked = !element.locked;
     }
 
     var consolePrint = function (value) {
