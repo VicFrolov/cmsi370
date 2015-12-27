@@ -1,14 +1,16 @@
 (function ($) {
     var deleteLi = function (element) {
-        $(element).remove();
+        if(!element[0].locked) {
+            $(element).remove();
+        }
     }
     var highlight = function (element) {
-        if(element.locked) {
+        if(element[0].locked) {
             $(element).css('background-color', 'white'); // JD: 7
         } else {
             $(element).css('background-color', 'yellow'); // JD: 7
         }
-        element.locked = !element.locked;
+        element[0].locked = !element[0].locked;
     }
 
     var consolePrint = function (value) {
@@ -139,6 +141,7 @@
             element.addEventListener("touchstart", startMove, false); // JD: 3
             element.addEventListener("touchmove", trackSlide, false);
             element.addEventListener("touchend", endSlide, false);
+            element.locked = false;
         });
         $('#list-container').scrollLeft($(".left-button").width());   
     }; // JD: 4
