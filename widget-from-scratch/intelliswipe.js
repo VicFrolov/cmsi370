@@ -1,4 +1,6 @@
 (function ($) {
+
+    // this is a test!
     var deleteLi = function (element) {
         $(element).remove();
     }
