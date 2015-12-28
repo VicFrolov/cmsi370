@@ -1,9 +1,16 @@
 (function ($) {
     var deleteLi = function (element) {
-        $(element).remove();
+        if(!element[0].locked) {
+            $(element).remove();
+        }
     }
     var highlight = function (element) {
-        $(element).css('background-color', 'yellow'); // JD: 7
+        if(element[0].locked) {
+            $(element).css('background-color', 'white'); // JD: 7
+        } else {
+            $(element).css('background-color', 'yellow'); // JD: 7
+        }
+        element[0].locked = !element[0].locked;
     }
 
     var consolePrint = function (value) {
@@ -16,6 +23,7 @@
             while (!$(target).is("li")) {
                 target = $(target).parent()[0];
             }
+
             if (target.movingBox) {
                 target.movingBox.offset({
                     left: touch.pageX - target.deltaX
@@ -65,6 +73,7 @@
             while (!$(target).is("li")) {
                 target = $(target).parent()[0]
             }
+
             var jThis = $(target),
                 startOffset = jThis.offset();
             target.startingPosition = offset.left - $(".left-button").width();
@@ -72,8 +81,10 @@
             target.stackedOut = false;
             target.deltaX = touch.pageX - startOffset.left;
         });
+
         event.stopPropagation();
     }
+
 
     var appendRightButton = function (element) {
         var listItem = $(element);
@@ -84,6 +95,7 @@
 
     var appendLeftButton = function (element) {
         var listItem = $(element);
+        listItem.locked = false;
         listItem.prepend("<div class='left-button'> </div> ");
         var leftButton = listItem.find(".left-button");  
         leftFunction(leftButton, listItem);     
@@ -113,8 +125,8 @@
 
     $.fn.intelliswipe = function (options) {
         var def = {
-            'right-function': deleteButton
-            ,'left-function': highlightButton
+            'right-function': deleteButton,
+            'left-function': highlightButton
         };
 
         jQuery.extend(options, def);
@@ -125,11 +137,11 @@
         ulItems.each(function (index, element) {
             $(element).width($("#list-container").width() + 300); // JD: 2
             appendRightButton(element);
-            appendLeftButton(element);       
+            appendLeftButton(element);
             element.addEventListener("touchstart", startMove, false); // JD: 3
             element.addEventListener("touchmove", trackSlide, false);
             element.addEventListener("touchend", endSlide, false);
-
+            element.locked = false;
         });
         $('#list-container').scrollLeft($(".left-button").width());   
     }; // JD: 4
